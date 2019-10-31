@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Home Page</title>
+    <meta charset="utf-8" />
+    <style>
+        html body {
+            padding: 0;
+            margin: 0;
+        }
+        h1 {
+            text-align: center;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1fr;
+            grid-template-areas: "burger name profilepic";
+        }
+
+        .burger {
+            grid-area: burger;
+            margin: 10px;;
+        }
+
+        .name {
+            grid-area: name;
+        }
+        .profilepic {
+            margin: 10px;
+            grid-area: profilepic;
+            text-align: right;
+        }
+        .bookimg {
+            text-align: center;
+        }
+        #navitems{
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="grid-container">
+            <div class="burger">
+                <button>&#8801;</button>
+            </div>
+            <div class="name">
+                <h1>Name</h1>
+            </div>
+            <div class="profilepic">
+                <img src="images/profilepic.png" />
+            </div>
+        </div>
+    </header>
+    <div id="body">
+        <nav id="navitems">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Books</a></li>
+                <li><a href="#">Reviews</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="newfeed">
+            <figure>
+                <img class="bookimg" alt="review" src="/images/book.png" />
+            </figure>
+            <figure>
+                <img class="bookimg" alt="review" src="./images/book.png" />
+            </figure>
+            <figure>
+                <img class="bookimg" alt="review" src="./images/book.png" />
+            </figure>
+        </div>
+    </div>
+</body>
+
+</html>
