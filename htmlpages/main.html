@@ -8,7 +8,13 @@
         html body {
             padding: 0;
             margin: 0;
+            background-color: lightgray;
         }
+
+        header {
+            background-color: white;
+        }
+
         h1 {
             text-align: center;
         }
@@ -22,23 +28,65 @@
 
         .burger {
             grid-area: burger;
-            margin: 10px;;
+            margin: 10px;
+            ;
         }
 
         .name {
             grid-area: name;
         }
+
         .profilepic {
             margin: 10px;
             grid-area: profilepic;
             text-align: right;
         }
-        .bookimg {
-            text-align: center;
+
+        .profilepic img {
+            border-radius: 50%;
         }
-        #navitems{
+
+        #navitems {
             display: none;
         }
+
+        .burger button {
+            float: left;
+            width: 30px;
+            height: 30px;
+            background-color: transparent;
+            border: none;
+            color: gray;
+            font-size: 30px;
+            font-weight: 400;
+            cursor: pointer;
+            outline: none;
+        }
+        .name {
+            font-family: sans-serif;
+        }
+
+        .optionstab {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr;
+            grid-template-areas: "newsfeed recentreviews";
+        }
+        .newsfeed {
+            grid-area: newsfeed;
+        }
+        .recentreviews {
+            grid-area: recentreviews;
+        }
+        .optionstab ul li{
+            list-style: none;
+            display: inline;
+        }
+
+        .optionstab ul li a{
+            text-decoration: none;
+        }
+
     </style>
 </head>
 
@@ -46,16 +94,23 @@
     <header>
         <div class="grid-container">
             <div class="burger">
-                <button>&#8801;</button>
+                <button>&#9776;</button>
             </div>
             <div class="name">
-                <h1>Name</h1>
+                <h1>BookWorms</h1>
             </div>
             <div class="profilepic">
-                <img src="images/profilepic.png" />
+                <img src="/images/profilepic.png" />
             </div>
         </div>
     </header>
+    <div class="optionstab">
+        <ul>
+            <li><a class="newsfeed" href="#">Newsfeed</a></li>
+            <li><a class="recentreviews" href="#">Recent Reviews</a></li>
+        </ul>
+
+    </div>
     <div id="body">
         <nav id="navitems">
             <ul>
@@ -68,13 +123,13 @@
         </nav>
         <div class="newfeed">
             <figure>
-                <img class="bookimg" alt="review" src="/images/book.png" />
+                <img class="bookimg" alt="book" src="/images/book.png" />
             </figure>
             <figure>
-                <img class="bookimg" alt="review" src="./images/book.png" />
+                <img class="bookimg" alt="book" src="/images/book.png" />
             </figure>
             <figure>
-                <img class="bookimg" alt="review" src="./images/book.png" />
+                <img class="bookimg" alt="book" src="/images/book.png" />
             </figure>
         </div>
     </div>
