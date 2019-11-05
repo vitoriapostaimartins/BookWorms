@@ -1,138 +1,251 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <title>BookWorms</title>
+        <meta charset="utf-8" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
+        <style>
+            html body {
+                padding: 0;
+                margin: 0;
+                font-family: 'Roboto', sans-serif;
+            }
 
-<head>
-    <title>Home Page</title>
-    <meta charset="utf-8" />
-    <style>
-        html body {
-            padding: 0;
-            margin: 0;
-            background-color: lightgray;
-        }
+            header {
+                background-color: #77A6F7;
+            }
 
-        header {
-            background-color: white;
-        }
+            h1 {
+                text-align: center;
+            }
 
-        h1 {
-            text-align: center;
-        }
+            .grid-container {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr 1f 1fr;
+                grid-template-rows: 1fr;
+                grid-template-areas: "bookWorms logIn logIn burger";
+            }
 
-        .grid-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            grid-template-rows: 1fr;
-            grid-template-areas: "burger name profilepic";
-        }
+            .burger {
+                grid-area: burger;
+                margin: 10px;
+            }
 
-        .burger {
-            grid-area: burger;
-            margin: 10px;
-            ;
-        }
+            .bookWorms {
+                grid-area: bookWorms;
+                margin: 8% 0% 0% 8%;
+                font-family: 'Lobster', cursive;
+                color: black;
+                background-color: #FFCCBC;
+                line-height: 25px;
+                height: 70px;
+                border-radius: 10px;
+            }
 
-        .name {
-            grid-area: name;
-        }
+            .logIn {
+                margin: 15% 10%;
+                grid-area: logIn;
+                text-align: right;
+                color: white;
+                font-size: 18px;
+                line-height: 20px;
+            }
 
-        .profilepic {
-            margin: 10px;
-            grid-area: profilepic;
-            text-align: right;
-        }
+            .logIn a {
+                text-decoration: none;
+                color: white;
+                
+            }
 
-        .profilepic img {
-            border-radius: 50%;
-        }
+            #navitems {
+                display: none;
+            }
 
-        #navitems {
-            display: none;
-        }
+            .burger button {
+                float: right;
+                width: 50px;
+                height: 50px;
+                background-color: white;
+                border-radius: 50%;
+                border: none;
+                color: #00887A;
+                font-size: 25pt;
+                font-weight: 400;
+                cursor: pointer;
+                outline: none;
+                margin: 10% 10%;
+            }
 
-        .burger button {
-            float: left;
-            width: 30px;
-            height: 30px;
-            background-color: transparent;
-            border: none;
-            color: gray;
-            font-size: 30px;
-            font-weight: 400;
-            cursor: pointer;
-            outline: none;
-        }
-        .name {
-            font-family: sans-serif;
-        }
+            .optionstab {
+                display: grid;
+                grid-template-columns: 50vw 50vw;
+                grid-template-rows: 1fr;
+                grid-template-areas: "newsfeed recentreviews";
+            }
+            .newsfeed {
+                grid-area: newsfeed;
+/*                 background-color: aqua; */
+            }
+            .recentreviews {
+                grid-area: recentreviews;
+                /*background-color: blueviolet;*/
+            }
 
-        .optionstab {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: 1fr;
-            grid-template-areas: "newsfeed recentreviews";
-        }
-        .newsfeed {
-            grid-area: newsfeed;
-        }
-        .recentreviews {
-            grid-area: recentreviews;
-        }
-        .optionstab ul li{
-            list-style: none;
-            display: inline;
-        }
+            .optionstab a {
+                text-decoration: none;
+                color: black;
+            }
 
-        .optionstab ul li a{
-            text-decoration: none;
-        }
+            .optionstab{
+                line-height: 6vh;
+                background-color: #D3E3FC;
+                text-align: center;
+                font-size: 18pt
+            }
+            #selected {
+                border-bottom: 2px black solid;
+            }
 
-    </style>
-</head>
+/*
+            .bookimg{
+                display: block;
+                margin: 0 5% 5% 0;
+            }
+*/
+            
+            
+            
+            .newsfeed-page {
+                      display: grid;
+                      grid-template-columns: 1fr 1fr;
+                      grid-template-rows: 1fr 1fr 1fr;
+                      grid-template-areas: "cover1 review-text1" "cover2 review-text2" "cover3 review-text3";
+            }
+            
+            
 
-<body>
-    <header>
-        <div class="grid-container">
-            <div class="burger">
-                <button>&#9776;</button>
+            .cover1 { 
+                grid-area: cover1;
+                padding: 10%;
+            }
+
+            .review-text1 { 
+                grid-area: review-text1;
+                padding: 10% 5% 10% 0%;
+            }
+
+            .cover2 { 
+                grid-area: cover2;
+                padding: 10%;
+            }
+
+            .review-text2 {
+                grid-area: review-text2;
+                padding: 10% 5% 10% 0%;
+            }
+
+            .cover3 {
+                grid-area: cover3; 
+                padding: 10%;
+            }
+
+            .review-text3 {
+                grid-area: review-text3; 
+                padding: 10% 5% 10% 0%;
+            }
+            
+            .stars {
+                font-size: 35px;
+                margin: 0;
+                color: #00887A;
+            }
+            
+            .book-title-review {
+                text-align: center;
+                margin: 3%;
+            }
+            
+            .review-title {
+                font-size: 20px;
+                margin: 0;
+                margin-top: 3%
+            }
+            
+            .review-preview {
+                font-size: 18px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <header>
+            <div class="grid-container">
+                <div class="bookWorms">
+                    <h1>BookWorms</h1>
+                </div>
+                <div class="logIn">
+                    <a href="#">Log in</a> | <a href="#">Sign up</a>
+                </div>
+                <div class="burger">
+                    <button>&#9776;</button>
+                </div>
             </div>
-            <div class="name">
-                <h1>BookWorms</h1>
+        </header>
+        <div class="optionstab">
+            <div class="newsfeed" >
+                <a href="#">Newsfeed</a>
             </div>
-            <div class="profilepic">
-                <img src="/images/profilepic.png" />
+            <div class="recentreviews" id="selected">
+                <a href="#">Recent Reviews</a>
             </div>
+
         </div>
-    </header>
-    <div class="optionstab">
-        <ul>
-            <li><a class="newsfeed" href="#">Newsfeed</a></li>
-            <li><a class="recentreviews" href="#">Recent Reviews</a></li>
-        </ul>
-
-    </div>
-    <div id="body">
-        <nav id="navitems">
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Books</a></li>
-                <li><a href="#">Reviews</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
-        <div class="newfeed">
-            <figure>
-                <img class="bookimg" alt="book" src="/images/book.png" />
-            </figure>
-            <figure>
-                <img class="bookimg" alt="book" src="/images/book.png" />
-            </figure>
-            <figure>
-                <img class="bookimg" alt="book" src="/images/book.png" />
-            </figure>
+        <div id="body">
+            <nav id="navitems">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Books</a></li>
+                    <li><a href="#">Reviews</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="newsfeed-page">
+<!--                <div class="review1">-->
+                    <div class="cover1">
+                        <img class="bookimg1" alt="book" src="/images/book.png" />
+                        <h3 class="book-title-review">Book Title</h3>
+                    </div>
+                    <div class="review-text1">
+                        <p class="stars">&#9733;&#9733;&#9733;</p>
+                        <h4 class="review-title">Review Title</h4>
+                        <p class="review-preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget urna tortor. Etiam in ligula risus. Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+                    </div>
+<!--                </div>-->
+<!--                <div class="review2">-->
+                    <div class="cover2">
+                        <img class="bookimg2" alt="book" src="/images/book.png" />
+                        <h3 class="book-title-review">Book Title</h3>
+                    </div>
+                    <div class="review-text2">
+                        <p class="stars">&#9733;&#9733;&#9733;</p>
+                        <h4 class="review-title">Review Title</h4>
+                        <p class="review-preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget urna tortor. Etiam in ligula risus. Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+                    </div>
+<!--                </div>-->
+<!--                <div class="review3">-->
+                    <div class="cover3">
+                        <img class="bookimg3" alt="book" src="/images/book.png" />
+                        <h3 class="book-title-review">Book Title</h3>
+                    </div>
+                    <div class="review-text3">
+                        <p class="stars">&#9733;&#9733;&#9733;</p>
+                        <h4 class="review-title">Review Title</h4>
+                        <p class="review-preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget urna tortor. Etiam in ligula risus. Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+                    </div>
+<!--                </div>-->
+            </div>    
         </div>
-    </div>
-</body>
-
+    </body>
 </html>
