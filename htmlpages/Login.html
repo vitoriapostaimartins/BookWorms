@@ -5,6 +5,31 @@
     <title>Login</title>
     <meta charset="utf-8" />
 
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Lobster&display=swap');
+        @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+        body {
+            background-color: #d3e3fc;
+        }
+        
+        script {
+            background-color: #d3e3fc;    
+        }
+
+        #headerTitle {
+            font-family: 'Lobster';
+            font-size: 5em;
+            text-align: center;
+        }
+
+        #headerSubtitle {
+            font-family: 'Roboto';
+            text-align: center;
+        }
+
+    </style>
+
     <!--Include firebase-related things-->
     <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
 
@@ -39,7 +64,8 @@
 </head>
 
 <body>
-    <h1>Welcome to our book review app!</h1>
+    <h1 id="headerTitle">Bookworms</h1>
+    <h2 id="headerSubtitle">Log in and start reviewing books today!</h2>
     <div id="firebaseui-auth-container"> </div>
     <div id="loader"> Loading... </div>
 
@@ -62,7 +88,7 @@
             },
             // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
             signInFlow: 'popup',
-            signInSuccessUrl: 'Main.html',
+            signInSuccessUrl: 'main.html',
             signInOptions: [
                 // Leave the lines as is for the providers you want to offer your users.
                 // firebase.auth.GoogleAuthProvider.PROVIDER_ID,
@@ -73,9 +99,9 @@
                 // firebase.auth.PhoneAuthProvider.PROVIDER_ID
             ],
             // Terms of service url.
-            tosUrl: 'Main.html',
+            tosUrl: 'main.html',
             // Privacy policy url.
-            privacyPolicyUrl: 'Main.html'
+            privacyPolicyUrl: 'main.html'
         };
 
         // The start method will wait until the DOM is loaded.
