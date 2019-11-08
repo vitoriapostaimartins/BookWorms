@@ -1,18 +1,272 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="utf-8"/>
-        <title>Book Project</title>
+        <title>BookWorms</title>
+        <meta charset="utf-8" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
+        
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-app.js"></script>
+        
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+        <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-auth.js"></script>
+        
+        <!-- This is the configuration that connects my web files to my firebase project -->
+        <script src="../scripts/firebase_config_bookworms.js"></script>
+        
+        <style>
+            html body {
+                padding: 0;
+                margin: 0;
+                font-family: 'Roboto', sans-serif;
+            }
+
+            header {
+                background-color: #77A6F7;
+            }
+
+            h1 {
+                text-align: center;
+            }
+
+            .grid-container {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr 1f 1fr;
+                grid-template-rows: 1fr;
+                grid-template-areas: "bookWorms logIn logIn burger";
+            }
+
+            .burger {
+                grid-area: burger;
+                margin: 10px;
+            }
+
+            .bookWorms {
+                grid-area: bookWorms;
+                margin: 8% 0% 0% 8%;
+                font-family: 'Lobster', cursive;
+                color: black;
+                background-color: #FFCCBC;
+                line-height: 25px;
+                height: 70px;
+                border-radius: 10px;
+            }
+
+            .logIn {
+                margin: 15% 10%;
+                grid-area: logIn;
+                text-align: right;
+                color: white;
+                font-size: 24px;
+                line-height: 20px;
+            }
+
+            .logIn a {
+                text-decoration: none;
+                color: white;
+                
+            }
+
+            #navitems {
+                display: none;
+            }
+
+            .burger button {
+                float: right;
+                width: 50px;
+                height: 50px;
+                background-color: white;
+                border-radius: 50%;
+                border: none;
+                color: #00887A;
+                font-size: 25pt;
+                font-weight: 400;
+                cursor: pointer;
+                outline: none;
+                margin: 20% 10%;
+                line-height: 10px;
+            }
+
+            .optionstab {
+                display: grid;
+                grid-template-columns: 50vw 50vw;
+                grid-template-rows: 1fr;
+                grid-template-areas: "newsfeed recentreviews";
+            }
+            .newsfeed {
+                grid-area: newsfeed;
+/*                 background-color: aqua; */
+            }
+            .recentreviews {
+                grid-area: recentreviews;
+                /*background-color: blueviolet;*/
+            }
+
+            .optionstab a {
+                text-decoration: none;
+                color: black;
+            }
+
+            .optionstab{
+                line-height: 6vh;
+                background-color: #D3E3FC;
+                text-align: center;
+                font-size: 18pt
+            }
+            #selected {
+                border-bottom: 2px #00887A solid;
+            }
+
+/*
+            .bookimg{
+                display: block;
+                margin: 0 5% 5% 0;
+            }
+*/
+            
+            
+            
+            .newsfeed-page {
+                      display: grid;
+                      grid-template-columns: 1fr 1fr;
+                      grid-template-rows: 1fr 1fr 1fr;
+                      grid-template-areas: "cover1 review-text1" "cover2 review-text2" "cover3 review-text3";
+            }
+            
+            
+
+            .cover1 { 
+                grid-area: cover1;
+                padding: 10%;
+            }
+
+            .review-text1 { 
+                grid-area: review-text1;
+                padding: 10% 5% 10% 0%;
+            }
+
+            .cover2 { 
+                grid-area: cover2;
+                padding: 10%;
+            }
+
+            .review-text2 {
+                grid-area: review-text2;
+                padding: 10% 5% 10% 0%;
+            }
+
+            .cover3 {
+                grid-area: cover3; 
+                padding: 10%;
+            }
+
+            .review-text3 {
+                grid-area: review-text3; 
+                padding: 10% 5% 10% 0%;
+            }
+            
+            .stars {
+                font-size: 35px;
+                margin: 0;
+                color: #00887A;
+            }
+            
+            .book-title-review {
+                text-align: center;
+                margin: 3%;
+            }
+            
+            .review-title {
+                font-size: 20px;
+                margin: 0;
+                margin-top: 3%
+            }
+            
+            .review-preview {
+                font-size: 18px;
+            }
+        </style>
     </head>
 
     <body>
-        <h1>Book Project</h1>
-        <p>Vitoria Postai Martins</p>
-        <p>Chris Raganit</p>
+        <header>
+            <div class="grid-container">
+                <div class="bookWorms">
+                    <h1>BookWorms</h1>
+                </div>
+                <div class="logIn">
+                    <a href="Login.html">Log in</a> | <a href="Login.html">Sign up</a>
+                </div>
+                <div class="burger">
+                    <button>&#9776;</button>
+                </div>
+            </div>
+        </header>
+        <div class="optionstab">
+            <div class="newsfeed" >
+                <a href="#">Newsfeed</a>
+            </div>
+            <div class="recentreviews" id="selected">
+                <a href="#">Recent Reviews</a>
+            </div>
+
+        </div>
+        <div id="body">
+            <nav id="navitems">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Books</a></li>
+                    <li><a href="#">Reviews</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="newsfeed-page">
+<!--                <div class="review1">-->
+                    <div class="cover1">
+                        <img class="bookimg1" alt="book" src="/images/book.png" />
+                        <h3 class="book-title-review">Book Title</h3>
+                    </div>
+                    <div class="review-text1">
+                        <p class="stars">&#9733;&#9733;&#9733;</p>
+                        <h4 class="review-title">Review Title</h4>
+                        <p class="review-preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget urna tortor. Etiam in ligula risus. Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+                    </div>
+<!--                </div>-->
+<!--                <div class="review2">-->
+                    <div class="cover2">
+                        <img class="bookimg2" alt="book" src="/images/book.png" />
+                        <h3 class="book-title-review">Book Title</h3>
+                    </div>
+                    <div class="review-text2">
+                        <p class="stars">&#9733;&#9733;&#9733;</p>
+                        <h4 class="review-title">Review Title</h4>
+                        <p class="review-preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget urna tortor. Etiam in ligula risus. Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+                    </div>
+<!--                </div>-->
+<!--                <div class="review3">-->
+                    <div class="cover3">
+                        <img class="bookimg3" alt="book" src="/images/book.png" />
+                        <h3 class="book-title-review">Book Title</h3>
+                    </div>
+                    <div class="review-text3">
+                        <p class="stars">&#9733;&#9733;&#9733;</p>
+                        <h4 class="review-title">Review Title</h4>
+                        <p class="review-preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget urna tortor. Etiam in ligula risus. Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+                    </div>
+<!--                </div>-->
+            </div>    
+        </div>
         
-        <p>This is Vitoria Martins typing a message</p>
-        
-        <p>This is Chris Raganit typing a message</p>
+        <script src="../scripts/create_user.js"></script>
+        <script src="../scripts/app.js"></script>
+
+        <script>
+            logoutUser();
+        </script>
         
     </body>
 </html>

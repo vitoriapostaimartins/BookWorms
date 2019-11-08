@@ -5,6 +5,22 @@
         <meta charset="utf-8" />
         <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
+        
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-app.js"></script>
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-auth.js"></script>
+        
+        <!-- The Firebase Authentication UI Library -->
+  <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+  <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-auth.js"></script>
+        
+        <!-- This is the configuration that connects my web files to my firebase project -->
+    <script src="../scripts/firebase_config_bookworms.js"></script>
         <style>
             html body {
                 padding: 0;
@@ -24,7 +40,7 @@
                 display: grid;
                 grid-template-columns: 1fr 1fr 1fr 1f 1fr;
                 grid-template-rows: 1fr;
-                grid-template-areas: "bookWorms logIn logIn burger";
+                grid-template-areas: "bookWorms logOut logOut burger";
             }
 
             .burger {
@@ -43,16 +59,16 @@
                 border-radius: 10px;
             }
 
-            .logIn {
+            .logOut {
                 margin: 15% 10%;
-                grid-area: logIn;
+                grid-area: logOut;
                 text-align: right;
                 color: white;
                 font-size: 24px;
                 line-height: 20px;
             }
 
-            .logIn a {
+            .logOut a {
                 text-decoration: none;
                 color: white;
                 
@@ -185,8 +201,8 @@
                 <div class="bookWorms">
                     <h1>BookWorms</h1>
                 </div>
-                <div class="logIn">
-                    <a href="#">Log in</a> | <a href="#">Sign up</a>
+                <div class="logOut">
+                    <a href="#">Log Out</a>
                 </div>
                 <div class="burger">
                     <button>&#9776;</button>
@@ -248,5 +264,13 @@
 <!--                </div>-->
             </div>    
         </div>
+        
+       <script src="../scripts/app.js"></script>
+  <script src="../scripts/create_user.js"></script>
+
+    <script> 
+  createUser();
+</script>
+        
     </body>
 </html>
