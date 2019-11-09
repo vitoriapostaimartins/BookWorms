@@ -43,7 +43,7 @@
 // If the currently logged in user is authenticated,
 // then signout this person "user".
 // ---------------------------------------------
-function logoutUser(){
+function logoutUser() {
   firebase.auth().onAuthStateChanged(function(user){
       var promise = firebase.auth().signOut();
       promise.then(function(){
@@ -56,9 +56,70 @@ function logoutUser(){
 // If the currently logged in user is authenticated,
 // then show the person's name in the header (id="name")
 // ---------------------------------------------
-//function showName(){
-//  firebase.auth().onAuthStateChanged(function(user){
-//      console.log(user);
-//      document.getElementById("name").innerHTML = user.displayName;
-//  });
-//}
+
+var book1 = db.collection("books").doc("book1");
+var book2 = db.collection("books").doc("book2");
+
+function showTitles(){
+  firebase.auth().onAuthStateChanged(function(user){
+      book1.get().then(function(doc){
+          let myObj = doc.data().title;
+          document.getElementById("book1title").innerHTML = myObj;
+      })
+      book2.get().then(function(doc){
+          let myObj = doc.data().title;
+          document.getElementById("book2title").innerHTML = myObj;
+      })
+  });
+}
+function showYears(){
+  firebase.auth().onAuthStateChanged(function(user){
+      book1.get().then(function(doc){
+          let myObj = doc.data().yearPublished;
+          document.getElementById("book1year").innerHTML = myObj;
+      })
+      book2.get().then(function(doc){
+          let myObj = doc.data().yearPublished;
+          document.getElementById("book2year").innerHTML = myObj;
+      })
+  });
+}
+function showAuthors(){
+  firebase.auth().onAuthStateChanged(function(user){
+      book1.get().then(function(doc){
+          let myObj = doc.data().author;
+          document.getElementById("book1author").innerHTML = myObj;
+      })
+      book2.get().then(function(doc){
+          let myObj = doc.data().author;
+          document.getElementById("book2author").innerHTML = myObj;
+      })
+  });
+}
+function showGenres(){
+  firebase.auth().onAuthStateChanged(function(user){
+      book1.get().then(function(doc){
+          let myObj = doc.data().genre;
+          document.getElementById("book1genre").innerHTML = myObj;
+      })
+      
+      book2.get().then(function(doc){
+          let myObj = doc.data().genre;
+          document.getElementById("book2genre").innerHTML = myObj;
+      })
+  });
+}
+function showSummaries(){
+  firebase.auth().onAuthStateChanged(function(user){
+      book1.get().then(function(doc){
+          let myObj = doc.data().summary;
+          document.getElementById("book1summary").innerHTML = myObj;
+      })
+      
+      book2.get().then(function(doc){
+          let myObj = doc.data().summary;
+          document.getElementById("book2summary").innerHTML = myObj;
+      })
+  });
+}
+

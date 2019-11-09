@@ -1,0 +1,9 @@
+html body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+#booksHeader {
+    background-color: #77A6F7;
+}

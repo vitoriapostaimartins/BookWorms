@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Books</title>
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <link type="text/css" rel="stylesheet" href="../style/booksStyle.css">
+          <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-app.js"></script>
+          <!-- TODO: Add SDKs for Firebase products that you want to use
+              https://firebase.google.com/docs/web/setup#available-libraries -->
+          <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-firestore.js"></script>
+
+          <!-- The Firebase Authentication UI Library -->
+          <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+          <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+          <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-auth.js"></script>
+
+          <!-- This is the configuration that connects my web files to my firebase project -->
+          <script src="../scripts/firebase_config_bookworms.js"></script>
+    </head>
+    <body>
+        <div id="booksHeader">
+            <h1>Books</h1>
+        </div>
+        
+        <div id="books">
+            <div id="book1">
+                <h2 id="book1title"></h2>
+                <p id="book1year"></p>
+                <p id="book1author"></p>
+                <p id="book1genre"></p>
+                <p id="book1summary"></p>
+                
+            </div>
+            <div id="book2">
+                <h2 id="book2title"></h2>
+                <p id="book2year"></p>
+                <p id="book2author"></p>
+                <p id="book2genre"></p>
+                <p id="book2summary"></p>
+                
+            </div>
+        </div>
+        <script src="../scripts/app.js"></script>
+        <script>
+            console.log("hi");
+            showTitles();
+            showYears();
+            showGenres();
+            showSummaries();
+            showAuthors();
+        </script>
+    </body>
+</html>
