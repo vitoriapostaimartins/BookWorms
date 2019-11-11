@@ -2,6 +2,8 @@
 <html>
     <head>
         <title>Books</title>
+        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
         <!-- The core Firebase JS SDK is always required and must be listed first -->
         <link type="text/css" rel="stylesheet" href="../style/booksStyle.css">
           <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-app.js"></script>
@@ -19,9 +21,30 @@
     </head>
     <body>
         <div id="booksHeader">
+            <p><a href="main.html">&#x2190;</a></p>
             <h1>Books</h1>
         </div>
-        
+        <div class="newsfeed-page">
+                <div id="cover1">
+                    <img id="bookimg1" alt="book" src="/images/book1cover.jpg" />
+<!--                     <h3 id="book1title"></h3>-->
+                    <p id = book1author></p>
+                    <p id = book1year></p>
+                 </div>
+                 <div id="summary1">
+                     <h3 id="book1title"></h3>
+                     <p id="book1summary"></p>
+                 </div>
+                 <div id="cover2">
+                     <img id="bookimg2" alt="book" src="/images/book2cover.jpg" />
+<!--                     <h3 id="book2title"></h3>-->
+                     <p id = book2author></p>
+                    <p id = book2year></p>
+                 </div>
+                 <div id="summary2">
+                     <h3 id="book2title"></h3>
+                     <p id="book2summary"></p>
+                 </div>
         <div id="books">
             <div id="book1">
                 <h2 id="book1title"></h2>
@@ -29,16 +52,15 @@
                 <p id="book1author"></p>
                 <p id="book1genre"></p>
                 <p id="book1summary"></p>
-                
             </div>
             <div id="book2">
                 <h2 id="book2title"></h2>
                 <p id="book2year"></p>
                 <p id="book2author"></p>
                 <p id="book2genre"></p>
-                <p id="book2summary"></p>
-                
+                <p id="book2summary"></p> 
             </div>
+        </div>
         </div>
         <script src="../scripts/app.js"></script>
         <script>
@@ -49,5 +71,6 @@
             showSummaries();
             showAuthors();
         </script>
+        
     </body>
 </html>

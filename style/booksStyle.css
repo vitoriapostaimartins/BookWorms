@@ -3,7 +3,73 @@ html body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
 }
-
+p{
+    padding: 0;
+    margin: 0;
+}
+h1 {
+    
+    margin: 0;
+}
 #booksHeader {
     background-color: #77A6F7;
+    height: 70px;
+    height: 12vh;
+    color: white;
+}
+#booksHeader h1 {
+    font-family: Lobster;
+    text-align: center;
+    display: block;
+    font-size: 6vh;
+    padding: 1.5vh;
+}
+#booksHeader p {
+    font-weight: 900;
+    padding: 20px;
+    font-size: 50px;
+    float: left;
+}
+#booksHeader a{
+    text-decoration: none;
+    color: white;
+}
+.bookCover {
+    width: 250px;
+    height: 300px;
+    padding: 10%;
+}
+
+.newsfeed-page {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: 1fr 1fr 1fr;
+          grid-template-areas: "cover1 summary1" "cover2 summary2";
+}
+
+
+
+#cover1 { 
+    grid-area: cover1;
+    padding: 10%;
+}
+
+#summary1 { 
+    grid-area: summary1;
+    padding: 10% 5% 10% 0%;
+}
+
+#cover2 { 
+    grid-area: cover2;
+    padding: 10%;
+}
+
+#summary2 {
+    grid-area: summary2;
+    padding: 10% 5% 10% 0%;
+}
+
+img {
+    width: 250px;
+    height: 300px;
 }
