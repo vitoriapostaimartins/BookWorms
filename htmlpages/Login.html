@@ -5,48 +5,22 @@
     <title>Login</title>
     <meta charset="utf-8" />
 
-    <style>
-        @import url('https://fonts.googleapis.com/css?family=Lobster&display=swap');
-        @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
-
-        body {
-            background-color: #d3e3fc;
-        }
-
-        script {
-            background-color: #d3e3fc;
-        }
-
-        #headerTitle {
-            font-family: 'Lobster';
-            font-size: 5em;
-            text-align: center;
-        }
-
-        #headerSubtitle {
-            font-family: 'Roboto';
-            text-align: center;
-        }
-
-        #loader {
-            text-align: center;
-        }
-    </style>
+    <link type="text/css" rel="stylesheet" href="../style/loginStyle.css">
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
-  <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-app.js"></script>
-  <!-- TODO: Add SDKs for Firebase products that you want to use
+    <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-app.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
       https://firebase.google.com/docs/web/setup#available-libraries -->
-  <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-firestore.js"></script>
 
-  <!-- The Firebase Authentication UI Library -->
-  <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
-  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
-  <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-auth.js"></script>
+    <!-- The Firebase Authentication UI Library -->
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+    <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-auth.js"></script>
 
-  <!-- This is the configuration that connects my web files to my firebase project -->
-  <script src="../scripts/firebase_config_bookworms.js"></script>
-<!--
+    <!-- This is the configuration that connects my web files to my firebase project -->
+    <script src="../scripts/firebase_config_bookworms.js"></script>
+    <!--
     //<script>
         // Your web app's Firebase configuration
 //        var firebaseConfig = {
@@ -67,51 +41,60 @@
 </head>
 
 <body>
-    <h1 id="headerTitle">Bookworms</h1>
-    <h2 id="headerSubtitle">Log in and start reviewing books today!</h2>
-    <div id="firebaseui-auth-container"> </div>
-    <div id="loader"> Loading... </div>
+    <header>
+        <div class = "grid-container1">
+            <div id = "loginTitle">
+                <span>Login</span>
+            </div>
+        </div>
+    </header>
+    <div class = "grid-container2"> 
+        <h1 id="headerTitle">Bookworms</h1>
+        <h2 id="headerSubtitle">Log in and start <br/> reviewing books today!</h2>
+        <div id="firebaseui-auth-container"> </div>
+        <div id="loader"> Loading... </div>
 
-    <script src="scripts/create_user.js"></script>
-    
-    <script>
-        // Initialize the FirebaseUI Widget using Firebase.
-        var ui = new firebaseui.auth.AuthUI(firebase.auth());
-        var uiConfig = {
-            callbacks: {
-                signInSuccessWithAuthResult: function (authResult, redirectUrl) {
-                    // User successfully signed in.
-                    // Return type determines whether we continue the redirect automatically
-                    // or whether we leave that to developer to handle.
-                    return true;
+        <script src="scripts/create_user.js"></script>
+
+        <script>
+            // Initialize the FirebaseUI Widget using Firebase.
+            var ui = new firebaseui.auth.AuthUI(firebase.auth());
+            var uiConfig = {
+                callbacks: {
+                    signInSuccessWithAuthResult: function (authResult, redirectUrl) {
+                        // User successfully signed in.
+                        // Return type determines whether we continue the redirect automatically
+                        // or whether we leave that to developer to handle.
+                        return true;
+                    },
+                    uiShown: function () {
+                        // The widget is rendered.
+                        // Hide the loader.
+                        document.getElementById('loader').style.display = 'none';
+                    }
                 },
-                uiShown: function () {
-                    // The widget is rendered.
-                    // Hide the loader.
-                    document.getElementById('loader').style.display = 'none';
-                }
-            },
-            // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
-            signInFlow: 'popup',
-            signInSuccessUrl: 'main.html',
-            signInOptions: [
-                // Leave the lines as is for the providers you want to offer your users.
-                // firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-                // firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-                // firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-                // firebase.auth.GithubAuthProvider.PROVIDER_ID,
-                firebase.auth.EmailAuthProvider.PROVIDER_ID,
-                // firebase.auth.PhoneAuthProvider.PROVIDER_ID
-            ],
-            // Terms of service url.
-            tosUrl: 'main.html',
-            // Privacy policy url.
-            privacyPolicyUrl: 'main.html'
-        };
+                // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
+                signInFlow: 'popup',
+                signInSuccessUrl: 'main.html',
+                signInOptions: [
+                    // Leave the lines as is for the providers you want to offer your users.
+                    // firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+                    // firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+                    // firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+                    // firebase.auth.GithubAuthProvider.PROVIDER_ID,
+                    firebase.auth.EmailAuthProvider.PROVIDER_ID,
+                    // firebase.auth.PhoneAuthProvider.PROVIDER_ID
+                ],
+                // Terms of service url.
+                tosUrl: 'main.html',
+                // Privacy policy url.
+                privacyPolicyUrl: 'main.html'
+            };
 
-        // The start method will wait until the DOM is loaded.
-        ui.start('#firebaseui-auth-container', uiConfig);
-    </script>
+            // The start method will wait until the DOM is loaded.
+            ui.start('#firebaseui-auth-container', uiConfig);
+        </script>
+    </div>
 </body>
 
 </html>

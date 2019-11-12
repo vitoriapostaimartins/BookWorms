@@ -1,0 +1,72 @@
+/* IMPORTED FONTS */
+@import url('https://fonts.googleapis.com/css?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+body {
+    padding: 0;
+    margin: 0;
+    background-color: #d3e3fc;
+}
+
+script {
+    background-color: #d3e3fc;
+}
+
+.grid-container1 {
+    background-color: #77A6F7;
+    display: grid;
+    grid-area: "login";
+    height: 12vh;
+}
+
+.grid-container2 {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: "headerTitle" "headerSubtitle" "loginBox";
+    height: 2vh;
+}
+
+header {
+    background-color: #77A6F7;
+    margin: 0vh;
+    width: 100%;
+    height: 12vh;
+}
+
+#loginTitle {
+    grid-area: login;
+    font-family: 'Lobster';
+    color: black;
+    font-size: 6vh;
+}
+
+#headerTitle {
+    grid-area: headerTitle;
+    font-family: 'Lobster';
+    text-align: center;
+    margin-bottom: 0vh;
+    font-size: 6vh;
+}
+
+#headerSubtitle {
+    grid-area: headerSubtitle;
+    font-family: 'Roboto';
+    text-align: center;
+    font-size: 3vh;
+}
+
+#firebaseui-auth-container {
+    grid-area: loginBox;
+    margin: 0px;
+    height: 28vh;
+    width: 100%;    
+}
+
+form {
+    height: 150%;
+}
+
+#loader {
+    grid-area: loader;
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Your favorite books</title>
+    <meta charset="utf-8" />
+    <link type="text/css" rel="stylesheet" href="../style/favBooksStyle.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-app.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+            https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-auth.js"></script>
+
+    <!-- The Firebase Authentication UI Library -->
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+    <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-auth.js"></script>
+
+    <!-- This is the configuration that connects my web files to my firebase project -->
+    <script src="../scripts/firebase_config_bookworms.js"></script>
+</head>
+
+<body>
+    <div id="grid-container1">
+        <header>
+            <div id="back"> <a href="profile.html"> <img id="backIcon" src="../icons/arrow.png" alt="backIcon"> </a> </div>
+            <div id="favBooksHeader">Favorite books</div>
+            <div id="menu"> <img id="menuIcon" src="../icons/burgerMenu.png" alt="menuIcon"> </div>
+
+            <div id="search"> <input class="form-control" type="text" placeholder="Search" aria-label="Search"> </div>
+            <div id="sort">
+                <div class="recentlyAdded" id="selected">Recently added</div>
+                <div class="topRated">Top rated</div>
+            </div>
+        </header>
+    </div>
+
+    <div id="grid-container2">
+        <div id="book1">
+            <img src="../images/book.png" alt="bookCover"/> <span class="bookTitle"> Book title </span>
+        </div>
+        <div id="book2">
+            <img src="../images/book.png" alt="bookCover"/> <span class="bookTitle"> Book title </span>
+        </div>
+        <div id="book3">
+            <img src="../images/book.png" alt="bookCover"/> <span class="bookTitle"> Book title </span>
+        </div>
+        <div id="book4">
+            <img src="../images/book.png" alt="bookCover"/> <span class="bookTitle"> Book title </span>
+        </div>
+        <div id="book5">
+            <img src="../images/book.png" alt="bookCover"/> <span class="bookTitle"> Book title </span>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<header>
+    <title>Uh-oh!</title>
+    <meta charset="utf-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-app.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+            https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-auth.js"></script>
+
+    <!-- The Firebase Authentication UI Library -->
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+    <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-auth.js"></script>
+
+    <!-- This is the configuration that connects my web files to my firebase project -->
+    <script src="../scripts/firebase_config_bookworms.js"></script>
+
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            background-color: #d3e3fc;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        header {
+            background-color: #77A6F7;
+        }
+
+        #grid-container1 {
+            background-color: #77A6F7;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+            height: 12vh;
+            width: 100%;
+        }
+
+        #back {
+            grid-column: 1 / 2;
+            grid-row: 1 / 2;
+            float: left;
+
+            margin-left: 10%;
+            margin-right: 5%;
+            margin-top: 17.5%;
+        }
+
+        #backIcon {
+            width: 120px;
+            height: 100px;
+        }
+
+        #headerTitle {
+            font-family: 'Lobster';
+            font-size: 15vw;
+
+            margin-top: 50%;
+            text-align: center;
+            grid-column: 2 / 4;
+            grid-row: 3 / 4;
+        }
+
+        #headerSubtitle {
+            font-family: 'Roboto';
+            font-size: 5vw;
+            text-align: center;
+
+            grid-column: 2 / 4;
+            grid-row: 4 / 5;
+        }
+    </style>
+</header>
+
+<body>
+    <div id="grid-container1">
+        <header>
+            <div id="back"> <a href="profile.html"> <img id="backIcon" src="../icons/arrow.png" alt="backIcon"> </a>
+            </div>
+        </header>
+
+        <div id="headerTitle"> Oh no! </div>
+        <div id="headerSubtitle"> <b>It looks like the page you're trying to visit is under construction. </b>
+            <br/> Definitely check this out at a later date when we have it up! </div>
+    </div>
+</body>
+
+
+</html>
