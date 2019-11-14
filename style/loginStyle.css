@@ -37,7 +37,7 @@ header {
 #loginTitle {
     grid-area: login;
     font-family: 'Lobster';
-    color: black;
+    color: white;
     font-size: 6vh;
 }
 

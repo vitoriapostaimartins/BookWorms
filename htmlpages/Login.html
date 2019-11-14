@@ -6,9 +6,17 @@
     <meta charset="utf-8" />
 
     <link type="text/css" rel="stylesheet" href="../style/loginStyle.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <!-- Bootstrap for Mobile-first -->
+    <meta name="viewport" content="width=device-width, initial-scale=6, shrink-to-fit=no">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-app.js"></script>
+
     <!-- TODO: Add SDKs for Firebase products that you want to use
       https://firebase.google.com/docs/web/setup#available-libraries -->
     <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-firestore.js"></script>
@@ -20,7 +28,8 @@
 
     <!-- This is the configuration that connects my web files to my firebase project -->
     <script src="../scripts/firebase_config_bookworms.js"></script>
-    <!--
+<!--     
+
     //<script>
         // Your web app's Firebase configuration
 //        var firebaseConfig = {
@@ -36,21 +45,21 @@
 //        firebase.initializeApp(firebaseConfig);
 //        firebase.analytics();
         
-    //</script>
--->
+    //</script> -->
+
 </head>
 
 <body>
     <header>
-        <div class = "grid-container1">
-            <div id = "loginTitle">
+        <div class="grid-container1">
+            <div id="loginTitle">
                 <span>Login</span>
             </div>
         </div>
     </header>
-    <div class = "grid-container2"> 
+    <div class="grid-container2">
         <h1 id="headerTitle">Bookworms</h1>
-        <h2 id="headerSubtitle">Log in and start <br/> reviewing books today!</h2>
+        <h2 id="headerSubtitle">Log in and start <br /> reviewing books today!</h2>
         <div id="firebaseui-auth-container"> </div>
         <div id="loader"> Loading... </div>
 

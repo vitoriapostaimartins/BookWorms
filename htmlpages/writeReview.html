@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Write a review</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="../style/writeReviewStyle.css">
+
+    <!-- Bootstrap for Mobile-first -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <link type="text/css" rel="stylesheet" href="../style/writeReviewStyle.css">
+    <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-app.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+              https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-firestore.js"></script>
+
+    <!-- The Firebase Authentication UI Library -->
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+    <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-auth.js"></script>
+
+    <!-- This is the configuration that connects my web files to my firebase project -->
+    <script src="../scripts/firebase_config_bookworms.js"></script>
+</head>
+
+<body>
+    <div id="grid-container1">
+        <header>
+            <div id="back"> <img id="backIcon" src="../icons/arrow.png" alt="backIcon"> </div>
+            <div id="headerTitle"> Write a review </div>
+            <div id="menu"> <img id="menuIcon" src="../icons/burgerMenu.png" alt="menuIcon"> </div>
+        </header>
+    </div>
+
+    <div id="grid-container2">
+        <form>
+            <div class="form-group">
+                <label for="reviewTitleInput"> Title </label>
+                <input type="text" class="form-control" id="reviewTitleInput" placeholder="Example input">
+            </div>
+            <div class="form-group">
+                <label for="reviewTextInput"> Review </label>
+                <input type="text" class="form-control" id="reviewTextInput" placeholder="Another input">
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
