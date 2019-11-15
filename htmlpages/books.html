@@ -18,18 +18,21 @@
 
           <!-- This is the configuration that connects my web files to my firebase project -->
           <script src="../scripts/firebase_config_bookworms.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </head>
     <body>
         <div id="booksHeader">
-            <p><a href="main.html">&#x2190;</a></p>
+            <div id="back"> <a href="main.html"> <img id="backIcon" src="../icons/arrow.png" alt="backIcon"> </a> </div>
             <h1>Books</h1>
         </div>
-        <div class="newsfeed-page">
+        <div class="books-page">
                 <div id="cover1">
                     <img id="bookimg1" alt="book" src="/images/book1cover.jpg" />
 <!--                     <h3 id="book1title"></h3>-->
-                    <p id = book1author></p>
-                    <p id = book1year></p>
+                    <p id = "book1author"></p>
+                    <p id = "book1year"></p>
+                    <p id = "book1genre"></p>
+                    <button id="addFav1">Add to Favorites!</button>
                  </div>
                  <div id="summary1">
                      <h3 id="book1title"></h3>
@@ -40,27 +43,16 @@
 <!--                     <h3 id="book2title"></h3>-->
                      <p id = book2author></p>
                     <p id = book2year></p>
+                     <p id = "book2genre"></p>
+                     <button id="addFav2">Add to Favorites!</button>
                  </div>
                  <div id="summary2">
                      <h3 id="book2title"></h3>
                      <p id="book2summary"></p>
                  </div>
-        <div id="books">
-            <div id="book1">
-                <h2 id="book1title"></h2>
-                <p id="book1year"></p>
-                <p id="book1author"></p>
-                <p id="book1genre"></p>
-                <p id="book1summary"></p>
-            </div>
-            <div id="book2">
-                <h2 id="book2title"></h2>
-                <p id="book2year"></p>
-                <p id="book2author"></p>
-                <p id="book2genre"></p>
-                <p id="book2summary"></p> 
-            </div>
-        </div>
+            
+<!--            <a id="bookmarkme" href="#" rel="sidebar" title="bookmark this page">Bookmark This Page</a>-->
+        
         </div>
         <script src="../scripts/app.js"></script>
         <script>
@@ -70,7 +62,9 @@
             showGenres();
             showSummaries();
             showAuthors();
-        </script>
+            clickButton1();
+            clickButton2();
+     </script>
         
     </body>
 </html>

@@ -123,3 +123,37 @@ function showSummaries(){
   });
 }
 
+function clickButton1(){
+    firebase.auth().onAuthStateChanged(function(user){
+        document.getElementById('addFav1').addEventListener('click', function(){
+            db.collection("books").doc("book1").get().then(function(doc){
+                db.collection('users').doc(user.uid).collection('usersBooks').doc('book1').set({
+                    author: doc.data().author,
+                    genre: doc.data().genre,
+                    summary: doc.data().summary,
+                    title: doc.data().title,
+                    yearPublished: doc.data().yearPublished
+                })
+            })
+        })
+    })
+}
+
+function clickButton2(){
+    firebase.auth().onAuthStateChanged(function(user){
+        document.getElementById('addFav2').addEventListener('click', function(){
+            db.collection("books").doc("book2").get().then(function(doc){
+                db.collection('users').doc(user.uid).collection('usersBooks').doc('book2').set({
+                    author: doc.data().author,
+                    genre: doc.data().genre,
+                    summary: doc.data().summary,
+                    title: doc.data().title,
+                    yearPublished: doc.data().yearPublished
+                    
+                })
+            })
+        })
+    })
+}
+
+

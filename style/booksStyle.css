@@ -23,13 +23,10 @@ h1 {
     display: block;
     font-size: 6vh;
     padding: 1.5vh;
+    position: absolute;
+    left: 40vw
 }
-#booksHeader p {
-    font-weight: 900;
-    padding: 20px;
-    font-size: 50px;
-    float: left;
-}
+
 #booksHeader a{
     text-decoration: none;
     color: white;
@@ -40,11 +37,12 @@ h1 {
     padding: 10%;
 }
 
-.newsfeed-page {
+.books-page {
           display: grid;
           grid-template-columns: 1fr 1fr;
           grid-template-rows: 1fr 1fr 1fr;
           grid-template-areas: "cover1 summary1" "cover2 summary2";
+    float: left;
 }
 
 
@@ -52,6 +50,7 @@ h1 {
 #cover1 { 
     grid-area: cover1;
     padding: 10%;
+    text-align: center;
 }
 
 #summary1 { 
@@ -62,6 +61,7 @@ h1 {
 #cover2 { 
     grid-area: cover2;
     padding: 10%;
+    text-align: center;
 }
 
 #summary2 {
@@ -69,7 +69,21 @@ h1 {
     padding: 10% 5% 10% 0%;
 }
 
-img {
+.books-page img {
     width: 250px;
     height: 300px;
+    text-align: center;
 }
+
+
+#backIcon {
+    float: left;
+    width: 120px;
+    height: 100px;
+    margin: 3%;
+}
+
+.addFav {
+    background-color: aqua;
+}
+

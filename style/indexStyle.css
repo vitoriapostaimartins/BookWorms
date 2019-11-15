@@ -42,7 +42,7 @@ h1 {
     text-align: right;
     color: white;
     font-size: 24px;
-                line-height: 20px;
+    line-height: 20px;
 }
 
 .logIn a {
@@ -50,8 +50,6 @@ h1 {
     color: white;
     
 }
-
-
 
 a{
     text-decoration: none;
@@ -80,9 +78,11 @@ a{
     grid-template-rows: 1fr;
     grid-template-areas: "newsfeed recentreviews";
 }
+
 .newsfeed {
     grid-area: newsfeed;
 }
+
 .recentreviews {
     grid-area: recentreviews;
 }
@@ -96,19 +96,19 @@ a{
     line-height: 6vh;
     background-color: #D3E3FC;
     text-align: center;
-    font-size: 18pt
+    font-size: 18pt;
 }
+
 #selected {
     border-bottom: 2px #00887A solid;
-}      
+}
+
 .newsfeed-page {
           display: grid;
           grid-template-columns: 1fr 1fr;
           grid-template-rows: 1fr 1fr 1fr;
           grid-template-areas: "cover1 review-text1" "cover2 review-text2" "cover3 review-text3";
 }
-
-
 
 .cover1 { 
     grid-area: cover1;
@@ -206,16 +206,7 @@ a{
     margin: 10px;
 }
 
-.bookWorms {
-    grid-area: bookWorms;
-    margin: 8% 0% 0% 8%;
-    font-family: 'Lobster', cursive;
-    color: black;
-    background-color: #FFCCBC;
-    line-height: 25px;
-    height: 70px;
-    border-radius: 10px;
-}
+
 
 .logOut {
     margin: 15% 10%;
