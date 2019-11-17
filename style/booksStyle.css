@@ -34,7 +34,7 @@ h1 {
 .bookCover {
     width: 250px;
     height: 300px;
-    padding: 10%;
+/*    padding: 10%;*/
 }
 
 .books-page {
@@ -44,9 +44,6 @@ h1 {
           grid-template-areas: "cover1 summary1" "cover2 summary2";
     float: left;
 }
-
-
-
 #cover1 { 
     grid-area: cover1;
     padding: 10%;

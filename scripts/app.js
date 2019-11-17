@@ -63,7 +63,7 @@ var book2 = db.collection("books").doc("book2");
 function showTitles(){
   firebase.auth().onAuthStateChanged(function(user){
       book1.get().then(function(doc){
-          let myObj = doc.data().title;
+          var myObj = doc.data().title;
           document.getElementById("book1title").innerHTML = myObj;
       })
       book2.get().then(function(doc){
@@ -156,4 +156,35 @@ function clickButton2(){
     })
 }
 
+function showBooks(){
+  firebase.auth().onAuthStateChanged(function(user){
+      var books = db.collection("books");
+       books.get().then(snap => {
+           size = snap.size; // will return the collection size
+           for(var i = 0; i < 2; i++){
+                books.doc(i.toString()).get().then(function(doc){
+                    var book = doc.data();
+                    console.log(book);
+                    var bookdiv = document.createElement('div');
+                    bookdiv.setAttribute('class', 'book');
+                    document.body.appendChild(bookdiv);
+                    
+                    var bookcover = document.createElement('div');
+                    bookcover.setAttribute('class', 'bookcover');
+                    bookdiv.appendChild(bookcover);
+                    var cover = document.createElement('img');
+                    console.log(book.image)
+                    cover.setAttribute('src', book.image);
+                    bookcover.appendChild(cover);
+                    
+                    var bookdetails = document.createElement('div');
+                    bookdetails.setAttribute('class', 'details');
+                    bookdiv.appendChild(bookdetails);
+                    
+                })
+           }
+       })
+  })
+    
+}
 
