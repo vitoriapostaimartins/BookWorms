@@ -62,12 +62,15 @@ var book2 = db.collection("books").doc("book2");
 
 function showTitles(){
   firebase.auth().onAuthStateChanged(function(user){
+      //first, it "gets" the book document from the database
       book1.get().then(function(doc){
+          //then, it assigns the title to a variable
           var myObj = doc.data().title;
+          //finally, it stores the title in an html tag
           document.getElementById("book1title").innerHTML = myObj;
       })
       book2.get().then(function(doc){
-          let myObj = doc.data().title;
+          var myObj = doc.data().title;
           document.getElementById("book2title").innerHTML = myObj;
       })
   });
@@ -125,9 +128,12 @@ function showSummaries(){
 
 function clickButton1(){
     firebase.auth().onAuthStateChanged(function(user){
+        //addFav1 - button
         document.getElementById('addFav1').addEventListener('click', function(){
-            db.collection("books").doc("book1").get().then(function(doc){
-                db.collection('users').doc(user.uid).collection('usersBooks').doc('book1').set({
+            //first, it "gets" the book1 document
+            db.collection("books").doc("book1").get()
+            //then, it adds a document to the collection usersBooks in the user document. This is adding a book to the user's inventory, or "favorite books"
+                .then(function(doc){ db.collection('users').doc(user.uid).collection('usersBooks').doc('book1').set({
                     author: doc.data().author,
                     genre: doc.data().genre,
                     summary: doc.data().summary,
