@@ -42,8 +42,8 @@ header {
 }
 
 #menuIcon {
-    width: 75px;
-    height: 75px;
+    width: 50px;
+    height: 50px;
 }
 
 #headerTitle {
@@ -60,10 +60,37 @@ header {
 }
 
 .form-group {
-    margin: 5vh;
+    margin-top: 5vh;
+    margin-left: 5vh;
+    margin-right: 5vh;
 }
 
 label {
     font-family: 'Roboto';
-    font-size: 
+    font-size: 2vh;
+    font-weight: bolder;
+}
+
+placeholder {
+    font-family: 'Roboto';
+    font-size: 2vh;
+    font-weight: bolder;
+}
+
+h1 {
+    margin-left: 5vh;
+    margin-top: 5vh;
+}
+
+#sendButton {
+    margin-left: 5vh;
+    margin-bottom: 5vh;
+    margin-top: 2vh;
+
+    font-family: 'Roboto';
+    font-weight: bold;
+}
+
+#sendButton:hover {
+    border: 1px solid #00887a;
 }
