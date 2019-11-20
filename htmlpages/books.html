@@ -6,6 +6,7 @@
         <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
         <!-- The core Firebase JS SDK is always required and must be listed first -->
         <link type="text/css" rel="stylesheet" href="../style/booksStyle.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
           <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-app.js"></script>
           <!-- TODO: Add SDKs for Firebase products that you want to use
               https://firebase.google.com/docs/web/setup#available-libraries -->
@@ -25,47 +26,15 @@
             <div id="back"> <a href="main.html"> <img id="backIcon" src="../icons/arrow.png" alt="backIcon"> </a> </div>
             <h1>Books</h1>
         </div>
-        <div class="books-page">
-                <div id="cover1">
-                    <img id="bookimg1" alt="book" src="/images/book1cover.jpg" />
-<!--                     <h3 id="book1title"></h3>-->
-                    <p id = "book1author"></p>
-                    <p id = "book1year"></p>
-                    <p id = "book1genre"></p>
-                    <button id="addFav1">Add to Favorites!</button>
-                 </div>
-                 <div id="summary1">
-                     <h3 id="book1title"></h3>
-                     <p id="book1summary"></p>
-                 </div>
-                 <div id="cover2">
-                     <img id="bookimg2" alt="book" src="/images/book2cover.jpg" />
-<!--                     <h3 id="book2title"></h3>-->
-                     <p id = book2author></p>
-                    <p id = book2year></p>
-                     <p id = "book2genre"></p>
-                     <button id="addFav2">Add to Favorites!</button>
-                 </div>
-                 <div id="summary2">
-                     <h3 id="book2title"></h3>
-                     <p id="book2summary"></p>
-                 </div>
-            
-<!--            <a id="bookmarkme" href="#" rel="sidebar" title="bookmark this page">Bookmark This Page</a>-->
-        
-        </div>
+        <script>
+            $(".favs").on('click', function(event){ //not working
+                console.log("hi");
+            });
+        </script>
         <script src="../scripts/app.js"></script>
         <script>
             console.log("hi");
-            showTitles();
-            showYears();
-            showGenres();
-            showSummaries();
-            showAuthors();
-            clickButton1();
-            clickButton2();
             showBooks();
-            
      </script>
         
     </body>

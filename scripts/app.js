@@ -52,6 +52,13 @@ function logoutUser() {
   });
 }
 
+function showName() {
+    firebase.auth().onAuthStateChanged(function (user) {
+        console.log(user);
+        document.getElementById("headerTitle").innerHTML = user.displayName;
+    });
+}
+
 // ---------------------------------------------
 // If the currently logged in user is authenticated,
 // then show the person's name in the header (id="name")
@@ -162,35 +169,99 @@ function clickButton2(){
     })
 }
 
+
+
 function showBooks(){
   firebase.auth().onAuthStateChanged(function(user){
       var books = db.collection("books");
        books.get().then(snap => {
            size = snap.size; // will return the collection size
-           for(var i = 0; i < 2; i++){
+           var bookspage = document.createElement('table');
+           bookspage.setAttribute('id', 'books-page');
+           document.body.appendChild(bookspage);
+           for(var i = 0; i < 5; i++){
                 books.doc(i.toString()).get().then(function(doc){
+                    //creates content 
+                    
+                    //gets book data
                     var book = doc.data();
                     console.log(book);
-                    var bookdiv = document.createElement('div');
+                    //creates book div
+                    var bookdiv = document.createElement('tr');
                     bookdiv.setAttribute('class', 'book');
-                    document.body.appendChild(bookdiv);
+                    bookspage.appendChild(bookdiv);
                     
-                    var bookcover = document.createElement('div');
+                    //creates cover div
+                    var bookcover = document.createElement('td');
                     bookcover.setAttribute('class', 'bookcover');
+                    //puts it in the book div
                     bookdiv.appendChild(bookcover);
+                    
+                    //creates image
                     var cover = document.createElement('img');
                     console.log(book.image)
+                    //adds book cover to image
                     cover.setAttribute('src', book.image);
+                    cover.setAttribute('class', "coverimg");
                     bookcover.appendChild(cover);
                     
-                    var bookdetails = document.createElement('div');
+                    //creates title
+                    var title = document.createElement('p');
+                    title.innerHTML = book.title;
+                    title.setAttribute('class', 'bookTitle');
+                    //adds title to book cover
+                    bookcover.appendChild(title);
+                    var favs = document.createElement('button');
+                    favs.setAttribute('class', 'favs')
+                    favs.innerHTML = 'Add to Favorites';
+                    //favs.setAttribute('onclick', "this.addEventListener('click', '');");
+//                    favs.addEventListener('click', "console.log('hi', this);");
+                    bookcover.appendChild(favs);
+                    
+                    //creates book details div
+                    var bookdetails = document.createElement('td');
                     bookdetails.setAttribute('class', 'details');
+                    //adds book details to book div
                     bookdiv.appendChild(bookdetails);
+                    
+                    //create author
+                    var author = document.createElement('p');
+                    author.setAttribute('class', 'author');
+                    author.innerHTML = book.author;
+                    bookdetails.appendChild(author);
+                    
+                    //create year
+                    var year = document.createElement('p');
+                    year.setAttribute('class', 'year');
+                    year.innerHTML = " (" + book.yearPublished + ")";
+                    bookdetails.appendChild(year);
+                    
+                    //creates summary
+                    var summary = document.createElement('p');
+                    summary.innerHTML = book.summary;
+                    summary.setAttribute('class', 'summary');
+                    bookdetails.appendChild(summary);
                     
                 })
            }
        })
   })
-    
 }
+function addFavs(){
+    firebase.auth().onAuthStateChanged(function(user){
+        document.getElementById('addFav2').addEventListener('click', function(){
+            db.collection("books").doc("book2").get().then(function(doc){
+                db.collection('users').doc(user.uid).collection('usersBooks').doc('book2').set({
+                    author: doc.data().author,
+                    genre: doc.data().genre,
+                    summary: doc.data().summary,
+                    title: doc.data().title,
+                    yearPublished: doc.data().yearPublished
+                    
+                })
+            })
+        })
+    })
+}
+
 
