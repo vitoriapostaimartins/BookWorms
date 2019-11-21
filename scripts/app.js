@@ -59,116 +59,6 @@ function showName() {
     });
 }
 
-// ---------------------------------------------
-// If the currently logged in user is authenticated,
-// then show the person's name in the header (id="name")
-// ---------------------------------------------
-
-var book1 = db.collection("books").doc("book1");
-var book2 = db.collection("books").doc("book2");
-
-function showTitles(){
-  firebase.auth().onAuthStateChanged(function(user){
-      //first, it "gets" the book document from the database
-      book1.get().then(function(doc){
-          //then, it assigns the title to a variable
-          var myObj = doc.data().title;
-          //finally, it stores the title in an html tag
-          document.getElementById("book1title").innerHTML = myObj;
-      })
-      book2.get().then(function(doc){
-          var myObj = doc.data().title;
-          document.getElementById("book2title").innerHTML = myObj;
-      })
-  });
-}
-function showYears(){
-  firebase.auth().onAuthStateChanged(function(user){
-      book1.get().then(function(doc){
-          let myObj = doc.data().yearPublished;
-          document.getElementById("book1year").innerHTML = myObj;
-      })
-      book2.get().then(function(doc){
-          let myObj = doc.data().yearPublished;
-          document.getElementById("book2year").innerHTML = myObj;
-      })
-  });
-}
-function showAuthors(){
-  firebase.auth().onAuthStateChanged(function(user){
-      book1.get().then(function(doc){
-          let myObj = doc.data().author;
-          document.getElementById("book1author").innerHTML = myObj;
-      })
-      book2.get().then(function(doc){
-          let myObj = doc.data().author;
-          document.getElementById("book2author").innerHTML = myObj;
-      })
-  });
-}
-function showGenres(){
-  firebase.auth().onAuthStateChanged(function(user){
-      book1.get().then(function(doc){
-          let myObj = doc.data().genre;
-          document.getElementById("book1genre").innerHTML = myObj;
-      })
-      
-      book2.get().then(function(doc){
-          let myObj = doc.data().genre;
-          document.getElementById("book2genre").innerHTML = myObj;
-      })
-  });
-}
-function showSummaries(){
-  firebase.auth().onAuthStateChanged(function(user){
-      book1.get().then(function(doc){
-          let myObj = doc.data().summary;
-          document.getElementById("book1summary").innerHTML = myObj;
-      })
-      
-      book2.get().then(function(doc){
-          let myObj = doc.data().summary;
-          document.getElementById("book2summary").innerHTML = myObj;
-      })
-  });
-}
-
-function clickButton1(){
-    firebase.auth().onAuthStateChanged(function(user){
-        //addFav1 - button
-        document.getElementById('addFav1').addEventListener('click', function(){
-            //first, it "gets" the book1 document
-            db.collection("books").doc("book1").get()
-            //then, it adds a document to the collection usersBooks in the user document. This is adding a book to the user's inventory, or "favorite books"
-                .then(function(doc){ db.collection('users').doc(user.uid).collection('usersBooks').doc('book1').set({
-                    author: doc.data().author,
-                    genre: doc.data().genre,
-                    summary: doc.data().summary,
-                    title: doc.data().title,
-                    yearPublished: doc.data().yearPublished
-                })
-            })
-        })
-    })
-}
-
-function clickButton2(){
-    firebase.auth().onAuthStateChanged(function(user){
-        document.getElementById('addFav2').addEventListener('click', function(){
-            db.collection("books").doc("book2").get().then(function(doc){
-                db.collection('users').doc(user.uid).collection('usersBooks').doc('book2').set({
-                    author: doc.data().author,
-                    genre: doc.data().genre,
-                    summary: doc.data().summary,
-                    title: doc.data().title,
-                    yearPublished: doc.data().yearPublished
-                    
-                })
-            })
-        })
-    })
-}
-
 
 
 function showBooks(){
@@ -185,6 +75,7 @@ function showBooks(){
                     
                     //gets book data
                     var book = doc.data();
+                    console.log (doc.id); // 
                     console.log(book);
                     //creates book div
                     var bookdiv = document.createElement('tr');
@@ -212,7 +103,9 @@ function showBooks(){
                     //adds title to book cover
                     bookcover.appendChild(title);
                     var favs = document.createElement('button');
-                    favs.setAttribute('class', 'favs')
+//                    favs.setAttribute('id', 'button' + i);
+                    favs.setAttribute('class', 'favs');
+                    favs.setAttribute('id', 'button' + doc.id);
                     favs.innerHTML = 'Add to Favorites';
                     //favs.setAttribute('onclick', "this.addEventListener('click', '');");
 //                    favs.addEventListener('click', "console.log('hi', this);");
@@ -242,26 +135,26 @@ function showBooks(){
                     summary.setAttribute('class', 'summary');
                     bookdetails.appendChild(summary);
                     
+                    favs.addEventListener('click', function(doc){
+                        books.get().then(function(doc){
+                            console.log(doc.id);
+                            db.collection('users').doc(user.uid).collection('usersBooks').doc(i.toString()).set({
+                                author: book.author,
+                                genre: book.genre,
+                                image: book.image, 
+                                summary: book.summary,
+                                title: book.title,
+                                yearPublished: book.yearPublished
+                            })
+                        })
+                    })
+                    
                 })
            }
        })
   })
 }
-function addFavs(){
-    firebase.auth().onAuthStateChanged(function(user){
-        document.getElementById('addFav2').addEventListener('click', function(){
-            db.collection("books").doc("book2").get().then(function(doc){
-                db.collection('users').doc(user.uid).collection('usersBooks').doc('book2').set({
-                    author: doc.data().author,
-                    genre: doc.data().genre,
-                    summary: doc.data().summary,
-                    title: doc.data().title,
-                    yearPublished: doc.data().yearPublished
-                    
-                })
-            })
-        })
-    })
-}
+
+
 
 
