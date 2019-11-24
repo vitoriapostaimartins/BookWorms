@@ -69,13 +69,14 @@ function showBooks(){
            var bookspage = document.createElement('table');
            bookspage.setAttribute('id', 'books-page');
            document.body.appendChild(bookspage);
-           for(var i = 0; i < 5; i++){
+           for(var i = 0; i < size; i++){
                 books.doc(i.toString()).get().then(function(doc){
                     //creates content 
                     
                     //gets book data
                     var book = doc.data();
                     console.log (doc.id); // 
+                    var bookid = doc.id;
                     console.log(book);
                     //creates book div
                     var bookdiv = document.createElement('tr');
@@ -105,7 +106,7 @@ function showBooks(){
                     var favs = document.createElement('button');
 //                    favs.setAttribute('id', 'button' + i);
                     favs.setAttribute('class', 'favs');
-                    favs.setAttribute('id', 'button' + doc.id);
+                    favs.setAttribute('id', 'button' + i);
                     favs.innerHTML = 'Add to Favorites';
                     //favs.setAttribute('onclick', "this.addEventListener('click', '');");
 //                    favs.addEventListener('click', "console.log('hi', this);");
@@ -135,9 +136,29 @@ function showBooks(){
                     summary.setAttribute('class', 'summary');
                     bookdetails.appendChild(summary);
                     
-                    favs.addEventListener('click', function(doc){
-                        books.get().then(function(doc){
-                            console.log(doc.id);
+//                    document.getElementById('button'+i).addEventListener('click', function(doc){
+//                        books.get().then(function(doc){
+////                            console.log(doc.id);
+//                            db.collection('users').doc(user.uid).collection('usersBooks').doc(book.title).set({
+//                                author: book.author,
+//                                genre: book.genre,
+//                                image: book.image, 
+//                                summary: book.summary,
+//                                title: book.title,
+//                                yearPublished: book.yearPublished
+//                            })
+//                        })
+//                    })
+                    
+//                    document.getElementById('button'+i).addEventListener('click', 
+//                                                                         function(doc){
+//                        books.get().then(function(doc){
+//                            console.log(doc.data());
+//                        })
+//                    })
+                    
+                    $( ".favs" ).each(function( i ) {
+                        this.addEventListener('click', function(){
                             db.collection('users').doc(user.uid).collection('usersBooks').doc(i.toString()).set({
                                 author: book.author,
                                 genre: book.genre,
@@ -146,15 +167,13 @@ function showBooks(){
                                 title: book.title,
                                 yearPublished: book.yearPublished
                             })
+                            
                         })
-                    })
-                    
+                        
+                    });
                 })
            }
        })
   })
-}
-
-
-
+}   
 
