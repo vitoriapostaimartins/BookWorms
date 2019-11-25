@@ -1,14 +1,17 @@
 {
   "firestore": {
-    "rules": "/Users/vitoriamartins/Desktop/1930/bookProject ",
+    "rules": "firestore.rules",
     "indexes": "firestore.indexes.json"
   },
   "hosting": {
-    "public": "public",
+    "public": "./htmlpages",
     "ignore": [
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
     ]
+  },
+  "database": {
+    "rules": "database.rules.json"
   }
 }
