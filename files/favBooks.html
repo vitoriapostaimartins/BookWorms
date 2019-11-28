@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Favorite Books</title>
+        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <link type="text/css" rel="stylesheet" href="./style/booksStyle.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+          <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-app.js"></script>
+          <!-- TODO: Add SDKs for Firebase products that you want to use
+              https://firebase.google.com/docs/web/setup#available-libraries -->
+          <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-firestore.js"></script>
+
+          <!-- The Firebase Authentication UI Library -->
+          <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+          <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+          <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-auth.js"></script>
+
+          <!-- This is the configuration that connects my web files to my firebase project -->
+          <script src="./scripts/firebase_config_bookworms.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+    <body>
+        <div id="booksHeader">
+            <div id="back"> <a href="main.html"> <img id="backIcon" src="https://img.icons8.com/ios/50/000000/circled-chevron-left.png" alt="backIcon"> </a> </div>
+            <h1 id="favBooksH1">Favorite Books</h1>
+        </div>
+        <script>
+            $(".favs").on('click', function(event){ //not working
+                console.log("hi");
+            });
+        </script>
+        <script src="./scripts/app.js"></script>
+        <script>
+            showFavs();
+     </script>
+        
+    </body>
+</html>

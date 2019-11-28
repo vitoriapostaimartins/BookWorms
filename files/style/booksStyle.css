@@ -1,0 +1,125 @@
+html body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+p{
+    padding: 0;
+    margin: 0;
+}
+h1 {
+    
+    margin: 0;
+}
+#booksHeader {
+    background-color: #77A6F7;
+    height: 70px;
+    height: 12vh;
+    color: white;
+}
+#booksHeader h1 {
+    font-family: Lobster;
+    text-align: center;
+    display: block;
+    font-size: 6vh;
+    padding: 1.5vh;
+    position: absolute;
+    left: 40vw
+}
+
+
+#booksHeader a{
+    text-decoration: none;
+    color: white;
+}
+.coverimg {
+    width: 250px;
+    height: 300px;
+/*    padding: 10%;*/
+}
+
+#books-page {
+/*
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: 1fr 1fr 1fr;
+          grid-template-areas: "cover1 summary1" "cover2 summary2";
+    float: left;
+*/
+}
+#cover1 { 
+    grid-area: cover1;
+    padding: 10%;
+    text-align: center;
+}
+
+#summary1 { 
+    grid-area: summary1;
+    padding: 10% 5% 10% 0%;
+}
+
+#cover2 { 
+    grid-area: cover2;
+    padding: 10%;
+    text-align: center;
+}
+
+#summary2 {
+    grid-area: summary2;
+    padding: 10% 5% 10% 0%;
+}
+
+#books-page img {
+    width: 250px;
+    height: 300px;
+    text-align: center;
+}
+
+
+#backIcon {
+    float: left;
+    width: 120px;
+    height: 100px;
+    margin: 3%;
+}
+
+#books-page{
+    width: 100%;
+}
+
+.book .bookcover {
+    padding: 5%;
+    
+}
+
+.book .details {
+    padding: 5%;
+}
+
+.bookTitle{
+    font-size: 30px;
+    text-align: center;
+}
+
+.year, .author {
+    display: inline;
+    text-align: center;
+    font-size: 25px;
+    padding: 20px;
+}
+
+.summary {
+    font-size: 20px;
+    padding: 20px;
+}
+
+.favs {
+    width: 100%;
+    height: 50px;
+    background-color: #FFCCBC;
+    border-radius: 10px;
+    font-size: 25px;
+}
+
+
+
