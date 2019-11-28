@@ -106,7 +106,7 @@ function showBooks(){
                     var favs = document.createElement('button');
 //                    favs.setAttribute('id', 'button' + i);
                     favs.setAttribute('class', 'favs');
-                    favs.setAttribute('id', 'button' + i);
+                    favs.setAttribute('id', 'button' + doc.id.toString());
                     favs.innerHTML = 'Add to Favorites';
                     //favs.setAttribute('onclick', "this.addEventListener('click', '');");
 //                    favs.addEventListener('click', "console.log('hi', this);");
@@ -136,38 +136,27 @@ function showBooks(){
                     summary.setAttribute('class', 'summary');
                     bookdetails.appendChild(summary);
                     
-//                    document.getElementById('button'+i).addEventListener('click', function(doc){
-//                        books.get().then(function(doc){
-////                            console.log(doc.id);
-//                            db.collection('users').doc(user.uid).collection('usersBooks').doc(book.title).set({
-//                                author: book.author,
-//                                genre: book.genre,
-//                                image: book.image, 
-//                                summary: book.summary,
-//                                title: book.title,
-//                                yearPublished: book.yearPublished
-//                            })
-//                        })
-//                    })
-                    
-//                    document.getElementById('button'+i).addEventListener('click', 
-//                                                                         function(doc){
-//                        books.get().then(function(doc){
-//                            console.log(doc.data());
-//                        })
-//                    })
-                    
+
                     $( ".favs" ).each(function( j ) {
-                        this.addEventListener('click', function(){ db.collection('users').doc(user.uid).collection('usersBooks').doc(j.toString()).set({
+                        this.addEventListener('click', function(){ 
+                           console.log(j);
                             
-                                author: book.author,
-                                genre: book.genre,
-                                image: book.image, 
-                                summary: book.summary,
-                                title: book.title,
-                                yearPublished: book.yearPublished
+                           var jj = j.toString();
+                           console.log(jj);
+                        
+                           db.collection("books").doc(jj).get().then(function(snap){
+                               console.log(snap.data());
+                               db.collection('users').doc(user.uid).collection('usersBooks').doc(j.toString()).set({
+                            
+                                author: snap.data().author,
+                                genre: snap.data().genre,
+                                image: snap.data().image, 
+                                summary: snap.data().summary,
+                                title: snap.data().title,
+                                yearPublished: snap.data().yearPublished 
                             })
-                            
+                           })
+                                         
                         })
                         
                     });
@@ -177,6 +166,8 @@ function showBooks(){
   })
 }   
 
+
+
 function showFavs(){ 
     firebase.auth().onAuthStateChanged(function(user){
         db.collection('users').doc(user.uid).collection('usersBooks').get().
@@ -184,8 +175,10 @@ function showFavs(){
             var bookspage = document.createElement('table');
            bookspage.setAttribute('id', 'books-page');
            document.body.appendChild(bookspage);
-            bookssnap.forEach(function(book){
-                    console.log(book);
+            console.log(bookssnap.empty);
+            bookssnap.forEach(function(b){
+                    console.log(b.data());
+                    var book = b.data();
                     //creates book div
                     var bookdiv = document.createElement('tr');
                     bookdiv.setAttribute('class', 'book');
@@ -212,7 +205,7 @@ function showFavs(){
                     //adds title to book cover
                     bookcover.appendChild(title);
                     //favs.setAttribute('onclick', "this.addEventListener('click', '');");
-//                    favs.addEventListener('click', "console.log('hi', this);");
+//                  //favs.addEventListener('click', "console.log('hi', this);");
                     
                     
                     //creates book details div
