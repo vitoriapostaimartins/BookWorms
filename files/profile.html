@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Your BookWorms profile</title>
+    <meta charset="utf-8" />
+
+    <link type="text/css" rel="stylesheet" href="./style/profileStyle.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+    https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-auth.js"></script>
+
+    <!-- The Firebase Authentication UI Library -->
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+    <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-auth.js"></script>
+
+    <!-- This is the configuration that connects my web files to my firebase project -->
+    <script src="../scripts/firebase_config_bookworms.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyDTP9Vy2ioIxzOo9ASWoe9n4_tH8UNxqxA",
+            authDomain: "bookworms-3fd21.firebaseapp.com",
+            databaseURL: "https://bookworms-3fd21.firebaseio.com",
+            projectId: "bookworms-3fd21",
+            storageBucket: "bookworms-3fd21.appspot.com",
+            messagingSenderId: "968201168067", //MAYBE USEFUL
+            appId: "1:968201168067:web:02c23923ebda9d32302e76"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+
+        var db = firebase.firestore();
+    </script>
+</head>
+
+<!--ISSUE WITH THE MENU BAR.
+    IT SHOWS UP BEHIND THE MAIN CONTENT OF THE PAGE WHEN IT SHOULD SHOW UP AT THE FRONT
+    NOT SURE HOW TO FIX-->
+
+<body>
+    <div id="grid-container1">
+        <header>
+            <div id="back"> <a href="main.html"> <img id="backIcon" src="https://img.icons8.com/ios/50/000000/circled-chevron-left.png" alt="backIcon"> </a> </div>
+            <div id="headerTitle"> Profile</div>
+            <div id="burger">
+                <button id="burgerButton"> </button>
+            </div>
+            <div id="menu">
+                <ul>
+                    <li id="search-bar"><input class="form-control" type="text" placeholder="Search"
+                            aria-label="Search">
+                    </li>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Trending</a></li>
+                    <li><a href="books.html">Books</a></li>
+                    <li><a href="#">Reviews</a></li>
+                    <li><a href="#">Recommended</a></li>
+                    <li><a href="#">Store</a></li>
+                    <li><a href="#">Account</a></li>
+                    <li><a href="#">Settings</a></li>
+                    <li><a href="#">Help</a></li>
+
+                </ul>
+            </div>
+        </header>
+    </div>
+
+    <div id="grid-container2">
+        <div id="row1">
+            <a href="favBooks.html">
+                <img id="favBooks" src="./profile/favBooks.png" alt="Fav books" />
+            </a>
+        </div>
+
+        <div id="shelf1">
+            <img id="shelfPng1" src="./profile/shelf.png" alt="A shelf" />
+        </div>
+
+        <div id="row2">
+            <a href="reviews.html">
+                <img id="reviews" src="./profile/reviews.png" alt="Reviews" />
+            </a>
+        </div>
+
+        <div id="shelf2">
+            <img id="shelfPng2" src="./profile/shelf.png" alt="A shelf" />
+        </div>
+
+        <div id="row3">
+
+        </div>
+
+        <div id="shelf3">
+            <img id="shelfPng3" src="./profile/shelf.png" alt="A shelf" />
+        </div>
+    </div>
+
+    <script src="./scripts/app.js"></script>
+    <script src="./scripts/create_user.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("#burgerButton").click(function () {
+                $("#menu").slideToggle(500);
+            });
+        });
+    </script>
+
+    <script>
+        
+    </script>
+
+    <script>
+        createUser();
+        showName();
+    </script>
+
+</body>
+
+</html>
