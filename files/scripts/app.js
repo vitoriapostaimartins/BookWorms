@@ -11,7 +11,7 @@ function logoutUser() {
   firebase.auth().onAuthStateChanged(function(user){
       var promise = firebase.auth().signOut();
       promise.then(function(){
-          //alert("logged out");
+//          alert("logged out");
       });
   });
 }
@@ -35,7 +35,6 @@ function showBooks(){
            document.body.appendChild(bookspage);
            for(var i = 0; i < size; i++){
                 books.doc(i.toString()).get().then(function(doc){
-                    //creates content 
                     
                     //gets book data
                     var book = doc.data();
