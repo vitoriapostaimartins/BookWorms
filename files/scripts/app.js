@@ -170,7 +170,7 @@ function showBooks(){
 
 function showFavs(){ 
     firebase.auth().onAuthStateChanged(function(user){
-        db.collection('users').doc(user.uid).collection('usersBooks').get().
+        db.collection('users').doc(user.uid).collection('usersBooks').orderBy('title').get().
         then(function(bookssnap){
             var bookspage = document.createElement('table');
            bookspage.setAttribute('id', 'books-page');
