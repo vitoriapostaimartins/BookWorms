@@ -46,108 +46,67 @@
     </script>
 </head>
 
-<!--ISSUE WITH THE MENU BAR.
-    IT SHOWS UP BEHIND THE MAIN CONTENT OF THE PAGE WHEN IT SHOULD SHOW UP AT THE FRONT
-    NOT SURE HOW TO FIX-->
-
 <body>
     <div id="grid-container1">
         <header>
-            <div id="back"> <img id="backIcon" src="../icons/arrow.png" alt="backIcon"> </div>
+            <!-- src="https://img.icons8.com/ios/50/000000/circled-chevron-left.png" -->
+            <div id="back"> <a href="main.html"> <img id="backIcon" src="../icons/arrow.png" alt="backIcon"> </a> </div>
             <div id="headerTitle"> Profile</div>
             <div id="burger">
-                <button id="burgerButton"> </button>
+                <button id="burgerButton"> <img src="../icons/burgerMenu.png" alt="menu"> </button>
             </div>
             <div id="menu">
                 <ul>
                     <li id="search-bar"><input class="form-control" type="text" placeholder="Search"
                             aria-label="Search">
                     </li>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Trending</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="profile.html">Profile</a></li>
                     <li><a href="books.html">Books</a></li>
-                    <li><a href="#">Reviews</a></li>
-                    <li><a href="#">Recommended</a></li>
-                    <li><a href="#">Store</a></li>
-                    <li><a href="#">Account</a></li>
-                    <li><a href="#">Settings</a></li>
-                    <li><a href="#">Help</a></li>
+                    <li><a href="underConstruction.html">Trending</a></li>
+                    <li><a href="underConstruction.html">Reviews</a></li>
+                    <li><a href="underConstruction.html">Recommended</a></li>
+                    <li><a href="underConstruction.html">Store</a></li>
+                    <li><a href="underConstruction.html">Settings</a></li>
+                    <li><a href="underConstruction.html">Help</a></li>
+
                 </ul>
             </div>
+
             <div id="grid-container2">
                 <div id="row1">
-                    <div id="favBooks"> </div>
-                    <div id="shelf1"> </div>
+                    <a href="favBooks.html">
+                        <img id="favBooks" src="../profile/favBooks.png" alt="Fav books" />
+                    </a>
+                </div>
+
+                <div id="shelf1">
+                    <img id="shelfPng1" src="../profile/shelf.png" alt="A shelf" />
                 </div>
 
                 <div id="row2">
-                    <div id="reviews"> </div>
-                    <div id="shelf2"> </div>
+                    <a href="reviews.html">
+                        <img id="reviews" src="../profile/reviews.png" alt="Reviews" />
+                    </a>
+                    <img src="../profile/cactus.png" id="cactusRow2" alt="cactus" />
+                </div>
+
+                <div id="shelf2">
+                    <img id="shelfPng2" src="../profile/shelf.png" alt="A shelf" />
                 </div>
 
                 <div id="row3">
-                    <div id="cactus"> </div>
-                    <div id="shelf3"> </div>
+                </div>
+
+                <div id="shelf3">
+                    <img id="shelfPng3" src="../profile/shelf.png" alt="A shelf" />
                 </div>
             </div>
         </header>
     </div>
 
-    <!-- <div id="grid-container2">
-        <div id="row1">
-            <div id="favBooks"></div>
-        </div>
-
-        <div id="shelf1">
-        </div>
-
-        <div id="row2">
-            <a href="reviews.html">
-            </a>
-        </div>
-
-        <div id="shelf2">
-        </div>
-
-        <div id="row3">
-        </div>
-
-        <div id="shelf3">
-        </div>
-    </div> -->
-
-    <!-- <div id="grid-container2">
-        <div id="row1">
-            <a href="favBooks.html">
-                <img id="favBooks" src="../profile/favBooks.png" alt="Fav books" />
-            </a>
-        </div>
-
-        <div id="shelf1">
-            <img id="shelfPng1" src="../profile/shelf.png" alt="A shelf" />
-        </div>
-
-        <div id="row2">
-            <a href="reviews.html">
-                <img id="reviews" src="../profile/reviews.png" alt="Reviews" />
-            </a>
-        </div>
-
-        <div id="shelf2">
-            <img id="shelfPng2" src="../profile/shelf.png" alt="A shelf" />
-        </div>
-
-        <div id="row3">
-
-        </div>
-
-        <div id="shelf3">
-            <img id="shelfPng3" src="../profile/shelf.png" alt="A shelf" />
-        </div>
-    </div> -->
-
-    <script src="./scripts/app.js"></script>
-    <script src="./scripts/create_user.js"></script>
+    <script src="../scripts/app.js"></script>
+    <script src="../scripts/create_user.js"></script>
 
     <script>
         $(document).ready(function () {

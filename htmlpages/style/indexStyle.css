@@ -25,15 +25,23 @@ h1 {
     margin: 10px;
 }
 
+#bookWormsLogo {
+    grid-area: bookWorms;
+    margin-left: 10px;
+    margin-top: 15px;
+    height: 130px;
+    width: 224px;
+}
+
 .bookWorms {
     grid-area: bookWorms;
-    margin: 8% 0% 0% 8%;
-    font-family: 'Lobster', cursive;
+    /* margin: 8% 0% 0% 8%; */
+    /* font-family: 'Lobster', cursive;
     color: black;
     background-color: #FFCCBC;
     line-height: 25px;
     height: 70px;
-    border-radius: 10px;
+    border-radius: 10px; */
 }
 
 .logIn {
@@ -48,28 +56,12 @@ h1 {
 .logIn a {
     text-decoration: none;
     color: white;
-    
+
 }
 
-a{
+a {
     text-decoration: none;
     color: black;
-}
-
-#burgerbutton {
-    float: right;
-    width: 50px;
-    height: 50px;
-    background-color: white;
-    border-radius: 50%;
-    border: none;
-    color: #00887A;
-    font-size: 25pt;
-    font-weight: 400;
-    cursor: pointer;
-    outline: none;
-    margin: 20% 10%;
-    line-height: 10px;
 }
 
 .optionstab {
@@ -92,7 +84,7 @@ a{
     color: black;
 }
 
-.optionstab{
+.optionstab {
     line-height: 6vh;
     background-color: #D3E3FC;
     text-align: center;
@@ -104,23 +96,23 @@ a{
 }
 
 .newsfeed-page {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          grid-template-rows: 1fr 1fr 1fr;
-          grid-template-areas: "cover1 review-text1" "cover2 review-text2" "cover3 review-text3";
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: "cover1 review-text1""cover2 review-text2""cover3 review-text3";
 }
 
-.cover1 { 
+.cover1 {
     grid-area: cover1;
     padding: 10%;
 }
 
-.review-text1 { 
+.review-text1 {
     grid-area: review-text1;
     padding: 10% 5% 10% 0%;
 }
 
-.cover2 { 
+.cover2 {
     grid-area: cover2;
     padding: 10%;
 }
@@ -131,13 +123,13 @@ a{
 }
 
 .cover3 {
-    grid-area: cover3; 
+    grid-area: cover3;
     padding: 10%;
 }
 
 .review-text3 {
-    grid-area: review-text3; 
-                padding: 10% 5% 10% 0%;
+    grid-area: review-text3;
+    padding: 10% 5% 10% 0%;
 }
 
 .stars {
@@ -160,6 +152,23 @@ a{
 .review-preview {
     font-size: 18px;
 }
+
+/* #burgerbutton {
+    float: right;
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    border-radius: 50%;
+    border: none;
+    color: #00887A;
+    font-size: 25pt;
+    font-weight: 400;
+    cursor: pointer;
+    outline: none;
+    margin: 20% 10%;
+    line-height: 10px;
+}
+
 #menu {
     padding: 10px;
     display: none;
@@ -169,16 +178,12 @@ a{
 
 #menu li {
     text-align: center;
-/*    border-radius: 10px;*/
-/*    padding: 3px;*/
-/*    margin: 3px;*/
     display: block;
-/*    background-color: white;*/
     font-size: 25px;
-    
-    
+
 }
-#menu li:not(#search-bar){
+
+#menu li:not(#search-bar) {
     border-bottom: 1px solid #aaa;
     height: calc(100vh/14);
 }
@@ -188,11 +193,75 @@ a{
     height: 4vh;
     text-align: center;
 }
-#search-bar input::placeholder{
+
+#search-bar input::placeholder {
     font-size: 25px;
 }
+ */
 
-/*MAIN PAGE:*/
+ #burger  {
+    padding-right: -6%;
+    padding-top: 15%;
+ }
+
+#burgerButton {
+    margin-left: 0%;
+
+    background-image: url("../icons/burgerMenu.png");
+    float: right;
+
+    width: 75px;
+    height: 75px;
+
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+
+    margin-top: 0%;
+    margin-right: 14%;
+}
+
+#menu {
+    margin-left: -5%;
+    float: center;
+    padding: 10px;
+    display: none;
+    height: 100vh;
+    background-color: white;
+}
+
+#menu li {
+    color: black;
+    margin-top: 3%;
+    width: 100%;
+    text-align: center;
+    display: block;
+    font-size: 30px;
+}
+
+#menu a:visited {
+    color: black;
+}
+
+#menu li:not(#search-bar) {
+    border-bottom: 1px solid #aaa;
+    height: calc(100vh/14);
+}
+
+#search-bar input {
+    width: 100%;
+    height: 4vh;
+    text-align: center;
+    border-top: black 1px solid;
+}
+
+#search-bar input::placeholder {
+    font-size: 30px;
+}
+
+/* =======================================================
+*                          MAIN PAGE
+   ======================================================= */
 .grid-container2 {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1f 1fr;
@@ -206,19 +275,21 @@ a{
     margin: 10px;
 }
 
-
-
 .logOut {
     margin: 15% 10%;
     grid-area: logOut;
     text-align: right;
     color: white;
-    font-size: 24px;
+    font-size: 30px;
     line-height: 20px;
+}
+
+.logOut a:hover {
+    font-weight: stronger;
 }
 
 .logOut a {
     text-decoration: none;
     color: white;
-    
+
 }

@@ -1,119 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>BookWorms</title>
-        <meta charset="utf-8" />
-        <link type="text/css" rel="stylesheet" href="./style/indexStyle.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
-        
-        <!-- The core Firebase JS SDK is always required and must be listed first -->
+
+<head>
+    <title>BookWorms</title>
+    <meta charset="utf-8" />
+    <link type="text/css" rel="stylesheet" href="./style/indexStyle.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-app.js"></script>
-        <!-- TODO: Add SDKs for Firebase products that you want to use
+    <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-app.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
         https://firebase.google.com/docs/web/setup#available-libraries -->
     <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-auth.js"></script>
-        
-        <!-- The Firebase Authentication UI Library -->
-  <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
-  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
-  <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-auth.js"></script>
-        
-        <!-- This is the configuration that connects my web files to my firebase project -->
+
+    <!-- The Firebase Authentication UI Library -->
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+    <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-auth.js"></script>
+
+    <!-- This is the configuration that connects my web files to my firebase project -->
     <script src="../scripts/firebase_config_bookworms.js"></script>
-        
-    </head>
 
-    <body>
-        <header>
-            <div class="grid-container2">
-                <div class="bookWorms">
-                    <h1>BookWorms</h1>
-                </div>
-                <div class="logOut">
-                    <a href="login.html">Log Out</a>
-                </div>
-                <div id="burger">
-                    <button id="burgerbutton">&#9776;</button>
-                </div>
+</head>
+
+<body>
+    <header>
+        <div class="grid-container2">
+            <div class="bookWorms">
+                <!-- <<h1>BookWorms</h1>> -->
+                <img id="bookWormsLogo" src="../logo/logoNoBackground.png" alt="logo" />
             </div>
+            <div class="logOut">
+                <a href="login.html">Log Out</a>
+            </div>
+            <div id="burger">
+                <button id="burgerButton"> <img src="../icons/burgerMenu.png" alt="menu"> </button>
+            </div>
+        </div>
         <div id="menu">
-                <ul>
-                    <li id="search-bar"><input class="form-control" type="text" placeholder="Search" aria-label="Search"></li>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Trending</a></li>
-                    <li><a href="books.html">Books</a></li>
-                    <li><a href="#">Reviews</a></li>
-                    <li><a href="#">Recommended</a></li>
-                    <li><a href="#">Store</a></li>
-                    <li><a href="profile.html">Account</a></li>
-                    <li><a href="#">Settings</a></li>
-                    <li><a href="#">Help</a></li>
-                    
-                </ul>
-            </div>
-        </header>
-        <div class="optionstab">
-            <div class="newsfeed" >
-                <a href="#">Newsfeed</a>
-            </div>
-            <div class="recentreviews" id="selected">
-                <a href="#">Recent Reviews</a>
-            </div>
-        </div>
-        <div id="body">
-            <div class="newsfeed-page">
-<!--                <div class="review1">-->
-                    <div class="cover1">
-                        <img class="bookimg1" alt="book" src="../images/book.png" />
-                        <h3 class="book-title-review">Book Title</h3>
-                    </div>
-                    <div class="review-text1">
-                        <p class="stars">&#9733;&#9733;&#9733;</p>
-                        <h4 class="review-title">Review Title</h4>
-                        <p class="review-preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget urna tortor. Etiam in ligula risus. Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
-                    </div>
-<!--                </div>-->
-<!--                <div class="review2">-->
-                    <div class="cover2">
-                        <img class="bookimg2" alt="book" src="../images/book.png" />
-                        <h3 class="book-title-review">Book Title</h3>
-                    </div>
-                    <div class="review-text2">
-                        <p class="stars">&#9733;&#9733;&#9733;</p>
-                        <h4 class="review-title">Review Title</h4>
-                        <p class="review-preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget urna tortor. Etiam in ligula risus. Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
-                    </div>
-<!--                </div>-->
-<!--                <div class="review3">-->
-                    <div class="cover3">
-                        <img class="bookimg3" alt="book" src="../images/book.png" />
-                        <h3 class="book-title-review">Book Title</h3>
-                    </div>
-                    <div class="review-text3">
-                        <p class="stars">&#9733;&#9733;&#9733;</p>
-                        <h4 class="review-title">Review Title</h4>
-                        <p class="review-preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget urna tortor. Etiam in ligula risus. Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
-                    </div>
-<!--                </div>-->
-            </div>    
-        </div>
-        
-        <script src="./scripts/app.js"></script>
-        <script src="./scripts/create_user.js"></script>
+            <ul>
+                <li id="search-bar"><input class="form-control" type="text" placeholder="Search" aria-label="Search">
+                </li>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Trending</a></li>
+                <li><a href="books.html">Books</a></li>
+                <li><a href="#">Reviews</a></li>
+                <li><a href="#">Recommended</a></li>
+                <li><a href="#">Store</a></li>
+                <li><a href="profile.html">Account</a></li>
+                <li><a href="#">Settings</a></li>
+                <li><a href="#">Help</a></li>
 
-        <script> 
-            createUser();
-        </script>
-        <script>
-            $( document ).ready(function() {
-                $("#burgerbutton").click(function(){
-                    $("#menu").slideToggle(500); 
-                });
+            </ul>
+        </div>
+    </header>
+    <div class="optionstab">
+        <div class="newsfeed">
+            <a href="#">Newsfeed</a>
+        </div>
+        <div class="recentreviews" id="selected">
+            <a href="#">Recent Reviews</a>
+        </div>
+    </div>
+    <div id="body">
+        <div class="newsfeed-page">
+            <!--                <div class="review1">-->
+            <div class="cover1">
+                <img class="bookimg1" alt="book" src="../images/book.png" />
+                <h3 class="book-title-review">Book Title</h3>
+            </div>
+            <div class="review-text1">
+                <p class="stars">&#9733;&#9733;&#9733;</p>
+                <h4 class="review-title">Review Title</h4>
+                <p class="review-preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget urna
+                    tortor. Etiam in ligula risus. Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+            </div>
+            <!--                </div>-->
+            <!--                <div class="review2">-->
+            <div class="cover2">
+                <img class="bookimg2" alt="book" src="../images/book.png" />
+                <h3 class="book-title-review">Book Title</h3>
+            </div>
+            <div class="review-text2">
+                <p class="stars">&#9733;&#9733;&#9733;</p>
+                <h4 class="review-title">Review Title</h4>
+                <p class="review-preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget urna
+                    tortor. Etiam in ligula risus. Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+            </div>
+            <!--                </div>-->
+            <!--                <div class="review3">-->
+            <div class="cover3">
+                <img class="bookimg3" alt="book" src="../images/book.png" />
+                <h3 class="book-title-review">Book Title</h3>
+            </div>
+            <div class="review-text3">
+                <p class="stars">&#9733;&#9733;&#9733;</p>
+                <h4 class="review-title">Review Title</h4>
+                <p class="review-preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget urna
+                    tortor. Etiam in ligula risus. Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+            </div>
+            <!--                </div>-->
+        </div>
+    </div>
+
+    <script src="./scripts/app.js"></script>
+    <script src="./scripts/create_user.js"></script>
+
+    <script>
+        createUser();
+    </script>
+    <script>
+        $(document).ready(function () {
+            $("#burgerButton").click(function () {
+                $("#menu").slideToggle(500);
             });
-        </script>
-        
-    </body>
+        });
+    </script>
+
+</body>
+
 </html>
