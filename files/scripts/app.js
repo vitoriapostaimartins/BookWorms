@@ -7,7 +7,11 @@
 // @version 1.0
 //=================================================
 
-//logs out user
+
+/**
+ * logs out user
+ * used in the index page to go, which is the landing page. Additionally, when the user logs out, they're taken to the index page, which logs the out.
+ */
 function logoutUser() {
     firebase.auth().onAuthStateChanged(function (user) {
         var promise = firebase.auth().signOut();
@@ -17,7 +21,10 @@ function logoutUser() {
     });
 }
 
-//customizes the profile page and shows the name of the user
+/**
+ * customizes the profile page and shows the name of the user
+ * called in the profile page
+ */
 function showName() {
     firebase.auth().onAuthStateChanged(function (user) {
         console.log(user);
@@ -26,7 +33,10 @@ function showName() {
 }
 
 
-//gets books from the database and shows them in the books page
+/**
+ * gets books from the database and shows them in the books page
+ * called in the books page
+ */
 function showBooks() {
     firebase.auth().onAuthStateChanged(function (user) {
         var books = db.collection("books");
@@ -101,7 +111,7 @@ function showBooks() {
                     summary.setAttribute('class', 'summary');
                     bookdetails.appendChild(summary);
 
-
+                    //adds event listeners to each "Add to Favorites" button
                     $(".favs").each(function (j) {
                         this.addEventListener('click', function () {
                             console.log(j);
@@ -132,9 +142,14 @@ function showBooks() {
 }
 
 
-//gets books from the collection usersBooks in the database and shows them in the favorite books page
+/**
+ * gets books from the collection usersBooks in the database and shows them in the favorite books page
+ * called in the favorite books page
+ * 
+ */
 function showFavs() {
     firebase.auth().onAuthStateChanged(function (user) {
+        //gets the books and sorts them by their title
         db.collection('users').doc(user.uid).collection('usersBooks').orderBy('title').get().
             then(function (bookssnap) {
                 var bookspage = document.createElement('table');

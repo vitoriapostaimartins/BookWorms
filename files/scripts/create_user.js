@@ -1,4 +1,6 @@
-//creates a new user
+/**
+ * creates a new user
+ */
 function createUser() {
     firebase.auth().onAuthStateChanged(function (user) {
         db.collection("users").doc(user.uid).set(
