@@ -1,10 +1,11 @@
-function createUser(){
-    firebase.auth().onAuthStateChanged(function(user){
+//creates a new user
+function createUser() {
+    firebase.auth().onAuthStateChanged(function (user) {
         db.collection("users").doc(user.uid).set(
-		{
-        "displayName":user.displayName, 
-         "email":user.email,
-        });
+            {
+                "displayName": user.displayName,
+                "email": user.email,
+            });
     });
 }
 
