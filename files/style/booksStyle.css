@@ -35,43 +35,23 @@ h1 {
 .coverimg {
     width: 250px;
     height: 300px;
-/*    padding: 10%;*/
-}
-
-#cover1 { 
-    grid-area: cover1;
-    padding: 10%;
     text-align: center;
 }
-
-#summary1 { 
-    grid-area: summary1;
-    padding: 10% 5% 10% 0%;
-}
-
-#cover2 { 
-    grid-area: cover2;
-    padding: 10%;
-    text-align: center;
-}
-
-#summary2 {
-    grid-area: summary2;
-    padding: 10% 5% 10% 0%;
-}
+/*
 
 #books-page img {
     width: 250px;
     height: 300px;
     text-align: center;
 }
+*/
 
 
 #backIcon {
     float: left;
     width: 120px;
     height: 100px;
-    margin: 3%;
+    margin: 1%;
 }
 
 #books-page{
@@ -112,5 +92,41 @@ h1 {
     font-size: 25px;
 }
 
+@media screen and (min-width: 100px) and (max-width: 480px){
+    #books-page{
+        display: block;
+/*        width: 20vw;*/
+    }
+    #backIcon {
+        width: 60px;
+        height: 50px;
+    }
+    .bookcover{
+        width: 2px;
+        
+    }
+    .bookcover img{
+        max-width: 125px;
+        max-height: 150px;
+        text-align: center;
+    }
+    .bookTitle{
+        font-size: 20px;
+    }
+    
+    .favs {
+        font-size: 20px;
+        height: auto;
+    }
+    .year{
+        font-size: 15px;
+    }
+    .author {
+        font-size: 15px;
+    }
+    .summary {
+        font-size: 12px;
+    }
+}
 
 

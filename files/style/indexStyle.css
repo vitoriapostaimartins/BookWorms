@@ -20,7 +20,7 @@ h1 {
     height: 12vh;
 }
 
-#burger {
+.burger {
     grid-area: burger;
     margin: 10px;
 }
@@ -56,7 +56,7 @@ a{
     color: black;
 }
 
-#burgerbutton {
+.burgerbutton {
     float: right;
     width: 50px;
     height: 50px;
@@ -160,14 +160,14 @@ a{
 .review-preview {
     font-size: 18px;
 }
-#menu {
+.menu {
     padding: 10px;
     display: none;
     height: 100vh;
     background-color: rgba(255, 255, 255, 0.8);
 }
 
-#menu li {
+.menu li {
     text-align: center;
 /*    border-radius: 10px;*/
 /*    padding: 3px;*/
@@ -178,7 +178,7 @@ a{
     
     
 }
-#menu li:not(#search-bar){
+.menu li:not(#search-bar){
     border-bottom: 1px solid #aaa;
     height: calc(100vh/14);
 }
@@ -201,7 +201,7 @@ a{
     height: 12vh;
 }
 
-#burger {
+.burger {
     grid-area: burger;
     margin: 10px;
 }
@@ -222,3 +222,32 @@ a{
     color: white;
     
 }
+
+@media screen and (min-width: 100px) and (max-width: 480px){
+    .bookWorms {
+        line-height: 3px;
+        height: 50px;
+        width: 110%;
+    }
+    .logIn, .logOut {
+        font-size: 20px;
+        margin: 30% 0;
+    }
+    .newsfeed-page img{
+        width: 150px;
+    }
+    .stars{
+        font-size: 20px;
+    }
+    .review-title{
+        font-size: 18px;
+    }
+    .review-preview{
+        font-size: 15px;
+        margin: 5px 0;
+    }
+    .burgerbutton{
+        margin: 10%;
+    }
+}
+

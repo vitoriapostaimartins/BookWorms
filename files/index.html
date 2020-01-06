@@ -33,13 +33,13 @@
                 <h1>BookWorms</h1>
             </div>
             <div class="logIn">
-                <a href="Login.html">Log in</a> | <a href="Login.html">Sign up</a>
+                <a href="Login.html">Log in</a>
             </div>
-            <div id="burger">
-                <button id="burgerbutton">&#9776;</button>
+            <div class="burger">
+                <button class="burgerbutton">&#9776;</button>
             </div>
         </div>
-        <div id="menu">
+        <div class="menu">
             <ul>
                 <li id="search-bar"><input class="form-control" type="text" placeholder="Search" aria-label="Search">
                 </li>
@@ -107,8 +107,8 @@
     </div>
     <script>
         $(document).ready(function () {
-            $("#burgerbutton").click(function () {
-                $("#menu").slideToggle(500);
+            $(".burgerbutton").click(function () {
+                $(".menu").slideToggle(500);
             });
         });
     </script>
